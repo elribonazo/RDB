@@ -8,4 +8,24 @@ The project started after years of experience working with web projects in both 
 4. Secure encryption
 5. Work seemlessly in browsers or nodejs applications.
 
-Work in progress
+## How to build this project
+Build requirements:
+* Bash
+* Have Rust ([cargo](https://doc.rust-lang.org/cargo/getting-started/installation.html)) and [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/) installed.
+* Node JS Version (20/LTS Recommended)
+
+```bash
+cd ts 
+npm i
+npm run build
+```
+
+## How to test the project
+For now have enabled the implementation of the whole wasm + javascript integration.
+In order to run it, write the following:
+
+```bash
+cd ts 
+npm i
+npm run test
+```
