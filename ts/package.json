@@ -1,6 +1,6 @@
 {
-  "name": "ridb",
-  "version": "0.0.0",
+  "name": "@elribonazo/ridb",
+  "version": "0.0.0-rc1",
   "description": "",
   "exports": {
     ".": {
@@ -25,24 +25,25 @@
     "build:types:umd": "npx dts-bundle-generator src/index.ts --umd-module-name RIDB -o ./umd/index.d.ts",
     "build:types:cjs": "npx dts-bundle-generator src/index.ts -o ./cjs/index.d.ts",
     "build:types:esm": "npx dts-bundle-generator src/index.ts -o ./esm/index.d.ts",
-    "test": "vitest --run tests/*.test.ts",
+    "test": "npm run test:node && npm run test:browser",
+    "test:node": "vitest --environment node --run tests/*.test.ts",
+    "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --browser.headless --run tests/*.test.ts",
     "test:coverage": "vitest run --coverage"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@esbuild-plugins/node-resolve": "^0.2.2",
+    "@types/node": "^20.14.2",
+    "@vitest/browser": "^1.6.0",
     "esbuild": "0.21.5",
     "esbuild-plugin-wasm": "^1.1.0",
     "jsdom": "^24.1.0",
-    "ridb-rust": "file:../pkg",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "vite-plugin-top-level-await": "^1.4.1",
     "vite-plugin-wasm": "^3.3.0",
-    "vitest": "^1.6.0"
-  },
-  "dependencies": {
-    "@types/node": "^20.14.2"
+    "vitest": "^1.6.0",
+    "webdriverio": "^7.16.4"
   }
 }

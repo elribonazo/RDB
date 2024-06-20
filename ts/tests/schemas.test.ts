@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-    Database,
+    RIDB,
     SchemaFieldType,
 } from "../src";
 
@@ -20,7 +20,8 @@ import * as InMemory from "../src/storage/InMemory";
 
 describe('RIDB', () => {
     it("Should be able to create a default database with a valid schema", async () => {
-        const db = await Database.create(
+
+        const db =  new RIDB(
             {
                 demo: {
                     version: 0,
@@ -36,10 +37,13 @@ describe('RIDB', () => {
             },
             InMemory
         )
+
+        await db.start();
+
         expect(db).to.not.be.undefined;
     });
     it("Should be able to create a database with a schema with nested fields", async () => {
-        const db = await Database.create(
+        const db =  new RIDB(
             {
                 demo: {
                     version: 0,
@@ -68,10 +72,11 @@ describe('RIDB', () => {
             },
             InMemory
         )
+        await db.start();
         expect(db).to.not.be.undefined;
     });
     it("Should be able to create a database with a schema and array fields", async () => {
-        const db = await Database.create(
+        const db =  new RIDB(
             {
                 demo: {
                     version: 0,
@@ -95,6 +100,7 @@ describe('RIDB', () => {
             },
             InMemory
         )
+        await db.start();
         expect(db).to.not.be.undefined;
     })
     it("Should throw an error when schemaType is invalid");
@@ -102,12 +108,13 @@ describe('RIDB', () => {
     it("Should validate the require fields are sent when calling db create")
 
     it('It should be able to create a new document from JSON schema', async () => {
-        const db = await Database.create(
+        const db =  new RIDB(
             {
                 demo: schemaType
             },
             InMemory
         )
+        await db.start();
         expect(db).to.not.be.undefined;
         expect(db.collections).to.not.be.undefined;
         expect(db.collections).to.haveOwnProperty("demo");

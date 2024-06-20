@@ -1,6 +1,6 @@
-import {SchemaTypeRecord, StorageModule, Database} from "ridb-rust";
+import {SchemaTypeRecord, StorageModule, Database} from "../../pkg/ridb_rust";
+export type * as RIDBTypes from "../../pkg/ridb_rust";
 
-export type * as RIDBTypes from "ridb-rust";
 export * from './schema/types';
 export class RIDB<T extends SchemaTypeRecord> {
     private _db: Database<T> | undefined;
@@ -20,8 +20,8 @@ export class RIDB<T extends SchemaTypeRecord> {
         return this.db.collections;
     }
 
-    async create() {
-        const internal = await import("ridb-rust")
+    async start() {
+        const internal = await import("../../pkg/ridb_rust")
         const {Database} = internal;
         this._db = await Database.create(
             this.schemas,

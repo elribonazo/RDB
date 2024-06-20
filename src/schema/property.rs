@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 use crate::schema::property_type::PropertyType;
 
 #[wasm_bindgen(typescript_custom_section)]
@@ -59,7 +59,7 @@ impl Property {
     pub fn items(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.items)
-            .map_err(|e| JsValue::from(RDBError::from(e)))?
+            .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
@@ -67,7 +67,7 @@ impl Property {
     pub fn max_items(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.max_items)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
@@ -75,7 +75,7 @@ impl Property {
     pub fn min_items(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.min_items)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
@@ -83,7 +83,7 @@ impl Property {
     pub fn max_length(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.max_length)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
@@ -91,7 +91,7 @@ impl Property {
     pub fn min_length(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.min_length)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
@@ -99,7 +99,7 @@ impl Property {
     pub fn required(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.required)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
@@ -107,7 +107,7 @@ impl Property {
     pub fn properties(&self) -> Result<JsValue, JsValue> {
         Ok(
             to_value(&self.properties)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 

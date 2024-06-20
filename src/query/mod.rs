@@ -1,7 +1,7 @@
 use serde_wasm_bindgen::to_value;
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 
 #[derive(Debug, Clone)]
 #[wasm_bindgen]
@@ -51,6 +51,6 @@ impl Operation {
     #[wasm_bindgen(getter)]
     pub fn indexes(&self) -> Result<JsValue, JsValue> {
         to_value(&self.indexes.clone())
-            .map_err(|e| JsValue::from(RDBError::from("Failed to retrieve value")))
+            .map_err(|e| JsValue::from(RIDBError::from("Failed to retrieve value")))
     }
 }

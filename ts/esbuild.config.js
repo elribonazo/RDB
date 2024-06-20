@@ -46,7 +46,7 @@ esbuild.build({
     entryPoints: ['src/index.ts'],
     outfile: 'cjs/index.js',
     bundle: true,
-    platform: 'node',
+    platform: 'neutral',
     target: ['node14'],
     sourcemap: true,
     format: 'cjs',

@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 use crate::schema::Schema;
 use crate::storage::internals::Internals;
 
@@ -79,7 +79,7 @@ impl Collection {
     #[wasm_bindgen]
     pub async fn create(&self, document: JsValue) -> Result<JsValue, JsValue> {
         let result = self.internals.write(document).await;
-        result.map_err(|e| JsValue::from(RDBError::from(e)))
+        result.map_err(|e| JsValue::from(RIDBError::from(e)))
     }
 
     #[wasm_bindgen]

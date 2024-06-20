@@ -4,7 +4,7 @@ use std::collections::HashMap;
 use js_sys::{ Object, Reflect};
 use wasm_bindgen::{JsCast, JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 use crate::storage::internals::{Internals};
 use crate::storage::internals::storage_internal::StorageInternal;
 
@@ -36,7 +36,7 @@ impl Storage {
     ) -> Result<Storage, JsValue> {
 
         if !storages_map_js.is_object() {
-            return Err(JsValue::from(RDBError::from("Unexepcted object")));
+            return Err(JsValue::from(RIDBError::from("Unexepcted object")));
         }
 
         let keys = Object::keys(
@@ -47,7 +47,7 @@ impl Storage {
         for key in keys {
             let key_string = key.as_string().unwrap();
             let value = Reflect::get(&storages_map_js.clone(), &key)
-                .map_err(|e| JsValue::from(RDBError::from("Failed to retrieve value")))?;
+                .map_err(|e| JsValue::from(RIDBError::from("Failed to retrieve value")))?;
             storages.insert(key_string, value.clone().into());
         }
 

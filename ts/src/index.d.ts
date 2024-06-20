@@ -1,5 +1,5 @@
-import { SchemaTypeRecord, StorageModule, Database } from "ridb-rust";
-export type * as RIDBTypes from "ridb-rust";
+import { SchemaTypeRecord, StorageModule, Database } from "../../pkg/ridb_rust";
+export type * as RIDBTypes from "../../pkg/ridb_rust";
 export * from './schema/types';
 export declare class RIDB<T extends SchemaTypeRecord> {
     private schemas;
@@ -7,6 +7,6 @@ export declare class RIDB<T extends SchemaTypeRecord> {
     private _db;
     constructor(schemas: T, storage: StorageModule);
     get db(): Database<T>;
-    get collections(): { [name in keyof T]: import("ridb-rust").Collection<import("ridb-rust").Schema<T[name]>>; };
-    create(): Promise<void>;
+    get collections(): { [name in keyof T]: import("../../pkg/ridb_rust").Collection<import("../../pkg/ridb_rust").Schema<T[name]>>; };
+    start(): Promise<void>;
 }

@@ -11,75 +11,75 @@ pub enum Errors {
 }
 
 #[derive(Serialize, Deserialize, Debug)]
-pub struct RDBError {
+pub struct RIDBError {
     pub code: Errors,
     pub message: String,
 }
 
-impl RDBError {
-    pub fn error(err: String) -> RDBError {
-        RDBError {
+impl RIDBError {
+    pub fn error(err: String) -> RIDBError {
+        RIDBError {
             code: Errors::Error,
             message: err
         }
     }
-    pub fn serialisation(err: String) -> RDBError {
-        RDBError {
+    pub fn serialisation(err: String) -> RIDBError {
+        RIDBError {
             code: Errors::SerializationError,
             message: err
         }
     }
 }
 
-impl From<serde_wasm_bindgen::Error> for RDBError {
-    fn from(error: serde_wasm_bindgen::Error) -> RDBError {
-        RDBError {
+impl From<serde_wasm_bindgen::Error> for RIDBError {
+    fn from(error: serde_wasm_bindgen::Error) -> RIDBError {
+        RIDBError {
             code: Errors::SerializationError,
             message:format!("Serialization {}", error),
         }
     }
 }
 
-impl From<JsValue> for RDBError {
-    fn from(error: JsValue) -> RDBError {
+impl From<JsValue> for RIDBError {
+    fn from(error: JsValue) -> RIDBError {
         let code = extract_property::<Errors>(&error, "code").unwrap_or(Errors::Error);
         let message = extract_property::<String>(&error, "message").expect("Invalid JS Error no message is available");
-        RDBError {
+        RIDBError {
             code,
             message,
         }
     }
 }
 
-impl From<&str> for RDBError {
-    fn from(error:&str) -> RDBError {
-        RDBError {
+impl From<&str> for RIDBError {
+    fn from(error:&str) -> RIDBError {
+        RIDBError {
             code: Errors::SerializationError,
             message:format!("Serialization {}", error),
         }
     }
 }
 
-impl From<String> for RDBError {
-    fn from(error:String) -> RDBError {
-        RDBError {
+impl From<String> for RIDBError {
+    fn from(error:String) -> RIDBError {
+        RIDBError {
             code: Errors::SerializationError,
             message:format!("Serialization {}", error),
         }
     }
 }
 
-impl From<Error> for RDBError {
-    fn from(error:Error) -> RDBError {
-        RDBError {
+impl From<Error> for RIDBError {
+    fn from(error:Error) -> RIDBError {
+        RIDBError {
             code: Errors::SerializationError,
             message:format!("Serialization {}", error),
         }
     }
 }
 
-impl From<RDBError> for JsValue {
-    fn from(failure: RDBError) -> Self {
+impl From<RIDBError> for JsValue {
+    fn from(failure: RIDBError) -> Self {
         let error = js_sys::Error::new(&failure.message).into();
         Reflect::set(&error, &"code".into(), &serde_wasm_bindgen::to_value(&failure.code).unwrap()).unwrap();
         error

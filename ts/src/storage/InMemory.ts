@@ -1,4 +1,4 @@
-import {BaseStorage, CreateStorage, Doc, InternalsRecord, Operation, OpType, SchemaType} from "ridb-rust";
+import {BaseStorage, CreateStorage, Doc, InternalsRecord, Operation, OpType, SchemaType} from "../../../pkg/ridb_rust";
 
 class InMemory<T extends SchemaType> extends BaseStorage<T>   {
     async write(operation:Operation<T>): Promise<Doc<T>> {

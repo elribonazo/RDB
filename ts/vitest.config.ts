@@ -10,23 +10,14 @@ export default defineConfig({
         wasm(),
         topLevelAwait()
     ],
-    optimizeDeps: {
-        exclude: [
-            "ridb-rust"
-        ]
-    },
+
     build: {
         minify: 'terser',
         terserOptions: { format: { comments: 'all' } },
     },
     test: {
         reporters: ['verbose'],
-        environment:"jsdom",
-        server: {
-            deps: {
-                external: ['ridb-rust'],
-            },
-        },
+        environment: "node",
         coverage: {
             provider: 'istanbul',
             reporter: isCI ? ['json-summary'] : ['json-summary', "html"],
@@ -37,7 +28,8 @@ export default defineConfig({
                 statements: 50
             },
             include: [
-                'src/**/*'
+                'src/**/*',
+                "pkg/**"
             ],
         },
 

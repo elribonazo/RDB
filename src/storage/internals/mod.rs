@@ -4,7 +4,7 @@ mod base_storage;
 use js_sys::Reflect;
 use wasm_bindgen::{JsCast, JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 use crate::query::{Operation, OpType};
 use crate::schema::property_type::PropertyType;
 use crate::schema::Schema;
@@ -44,10 +44,10 @@ impl Internals {
         let doc_property = Reflect::get(
             &document,
             &JsValue::from(&key)
-        ).map_err(|e| JsValue::from(RDBError::from(e)))?;
+        ).map_err(|e| JsValue::from(RIDBError::from(e)))?;
         let properties = self.schema.properties.clone();
         let primary_key_property = properties.get(&key)
-            .ok_or(RDBError::from("Invalid Schema cannot find primaryKey field"))
+            .ok_or(RIDBError::from("Invalid Schema cannot find primaryKey field"))
             .map_err(|e| JsValue::from(e))?;
         let primary_key_type = primary_key_property.property_type();
         if doc_property.is_null() || doc_property.is_undefined() {
@@ -55,24 +55,24 @@ impl Internals {
                 Reflect::set(
                     &document,
                     &JsValue::from(&key),
-                    &JsValue::from("12245")
-                ).map_err(|e| JsValue::from(RDBError::from(e)))?;
+                    &JsValue::from("12345")
+                ).map_err(|e| JsValue::from(RIDBError::from(e)))?;
             } else {
                 Reflect::set(
                     &document,
                     &JsValue::from(&key),
                     &JsValue::from(12345)
-                ).map_err(|e| JsValue::from(RDBError::from(e)))?;
+                ).map_err(|e| JsValue::from(RIDBError::from(e)))?;
             }
         }
         let doc_property = Reflect::get(
             &document,
             &JsValue::from(&key)
-        ).map_err(|e| JsValue::from(RDBError::from(e)))?;
+        ).map_err(|e| JsValue::from(RIDBError::from(e)))?;
         if primary_key_type == PropertyType::String && !doc_property.is_string() {
-            Err(JsValue::from(RDBError::from("Unexpected primary key should be a string")))
+            Err(JsValue::from(RIDBError::from("Unexpected primary key should be a string")))
         } else if primary_key_type == PropertyType::Number && !doc_property.is_bigint() {
-            Err(JsValue::from(RDBError::from("Unexepcted primary key should be number")))
+            Err(JsValue::from(RIDBError::from("Unexepcted primary key should be number")))
         } else {
             Ok(document)
         }
@@ -86,12 +86,12 @@ impl Internals {
             if value.is_undefined() {
                 if let Some(required_fields) = &self.schema.required {
                     if required_fields.contains(&key) {
-                        return Err(JsValue::from(RDBError::error(format!("Field {} is required", key))));
+                        return Err(JsValue::from(RIDBError::error(format!("Field {} is required", key))));
                     }
                 }
             } else {
                 if !self.is_type_correct(&value, prop.property_type) {
-                    return Err(JsValue::from(RDBError::error(format!("Field {} should match type {:?}", key, prop.property_type))));
+                    return Err(JsValue::from(RIDBError::error(format!("Field {} should match type {:?}", key, prop.property_type))));
                 }
             }
         }
@@ -121,7 +121,7 @@ impl Internals {
         let primary_key = self.schema.primary_key.clone();
         let document = self
             .validate_schema(document_without_pk)
-            .map_err(|e| JsValue::from(RDBError::from("Could not add primary key")))?;
+            .map_err(|e| JsValue::from(RIDBError::from("Could not add primary key")))?;
 
         let mut indexes = match self.schema.indexes.clone() {
             Some(mut existing) => {
@@ -142,7 +142,7 @@ impl Internals {
             indexes,
         };
         let result = self.internal.write(op).await;
-        result.map_err(|e| JsValue::from(RDBError::from(e)))
+        result.map_err(|e| JsValue::from(RIDBError::from(e)))
     }
 
     #[wasm_bindgen]

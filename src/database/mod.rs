@@ -3,7 +3,7 @@ use js_sys::{Object, Reflect};
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
 use crate::collection::Collection;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 use crate::storage::internals::storage_internal::{StorageModule};
 use crate::storage::Storage;
 
@@ -50,7 +50,7 @@ impl Database {
                 &object,
                 &JsValue::from_str(key.as_str()),
                 &JsValue::from(collection)
-            ).map_err(|e| JsValue::from(RDBError::from("Failed to retrieve value")))?;
+            ).map_err(|e| JsValue::from(RIDBError::from("Failed to retrieve value")))?;
 
         }
 
@@ -65,13 +65,13 @@ impl Database {
         module: StorageModule
     ) -> Result<Database, JsValue> {
         if !schemas_map_js.is_object() {
-            return Err(JsValue::from(RDBError::from("Unexepcted object")));
+            return Err(JsValue::from(RIDBError::from("Unexepcted object")));
         }
         let storage_internal_map_js = module.create_storage(&schemas_map_js.clone()).await;
         let storage =
                 Storage::create(storage_internal_map_js.clone().into())
                     .map_err(|e| {
-                    JsValue::from(RDBError::from(e))
+                    JsValue::from(RIDBError::from(e))
                 })?;
         Ok(
             Database {

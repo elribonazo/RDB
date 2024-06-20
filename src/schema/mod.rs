@@ -7,7 +7,7 @@ use serde::{Deserialize, Deserializer, Serialize, Serializer};
 use serde_wasm_bindgen::{from_value, to_value};
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
-use crate::error::RDBError;
+use crate::error::RIDBError;
 use crate::schema::property::Property;
 
 #[wasm_bindgen(typescript_custom_section)]
@@ -60,7 +60,7 @@ impl Schema {
     pub fn create(schema: JsValue) -> Result<Schema, JsValue> {
         Ok(
             from_value(schema)
-                .map_err(|e| JsValue::from(RDBError::from(e)))?
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?
         )
     }
 
