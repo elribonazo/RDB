@@ -30,7 +30,7 @@ export class Collection<
     schema: T;
     constructor(name: string, schema: T);
     find(): Promise< Doc<T>[]>;
-    findOne<Props extends Record<string, Property> = T['properties']>(id: string): Promise<Doc<T>>;
+    findOne(id: string): Promise<Doc<T>>;
     update(id: string, document: Partial<Doc<T>>): Promise<void>;
     create(document: Doc<T>): Promise<Doc<T>>;
     delete(id: string): Promise<void>;

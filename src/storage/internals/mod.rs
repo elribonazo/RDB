@@ -1,4 +1,5 @@
 pub mod storage_internal;
+mod base_storage;
 
 use js_sys::Reflect;
 use wasm_bindgen::{JsCast, JsValue};
@@ -12,8 +13,8 @@ use crate::storage::internals::storage_internal::StorageInternal;
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = r#"
 export class Internals<T extends SchemaType> {
-    readonly internal: StorageInternal<T>
-    constructor(internal: StorageInternal<T>);
+    readonly internal: BaseStorage<T>
+    constructor(internal: BaseStorage<T>);
     readonly schema: T
 }
 "#;

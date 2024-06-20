@@ -10,7 +10,7 @@ use crate::storage::internals::storage_internal::StorageInternal;
 
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = r#"
-export type InternalsRecord = { [name: string]: StorageInternal<SchemaType> };
+export type InternalsRecord = { [name: string]: BaseStorage<SchemaType> };
 export class Storage<T extends InternalsRecord> {
     static create<
         TS extends InternalsRecord = InternalsRecord

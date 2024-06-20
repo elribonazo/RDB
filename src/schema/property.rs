@@ -12,7 +12,7 @@ export class Property {
     readonly type: string;
     readonly version?: number;
     readonly primaryKey?: string;
-    readonly items?: Property;
+    readonly items?: Property[];
     readonly maxItems?: number;
     readonly minItems?: number;
     readonly maxLength?: number;
