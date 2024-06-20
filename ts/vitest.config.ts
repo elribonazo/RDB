@@ -17,15 +17,14 @@ export default defineConfig({
     },
     test: {
         reporters: ['verbose'],
-        environment: "node",
         coverage: {
             provider: 'istanbul',
             reporter: isCI ? ['json-summary'] : ['json-summary', "html"],
             thresholds: {
-                branches: 50,
-                functions: 50,
-                lines: 50,
-                statements: 50
+                branches: 100,
+                functions: 100,
+                lines: 100,
+                statements: 100
             },
             include: [
                 'src/**/*',

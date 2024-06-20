@@ -43,7 +43,7 @@ execSync('tsc', { stdio: 'inherit' });
 
 
 esbuild.build({
-    entryPoints: ['src/index.ts'],
+    entryPoints: ['src/shared.ts'],
     outfile: 'cjs/index.js',
     bundle: true,
     platform: 'neutral',
@@ -61,7 +61,7 @@ esbuild.build({
 
 // Build ES module
 esbuild.build({
-    entryPoints: ['src/index.ts'],
+    entryPoints: ['src/shared.ts'],
     outfile: 'esm/index.js',
     bundle: true,
     platform: 'neutral',
@@ -80,7 +80,7 @@ esbuild.build({
 
 // Build browser version
 esbuild.build({
-    entryPoints: ['src/index.ts'],
+    entryPoints: ['src/shared.ts'],
     outfile: 'umd/index.js',
     bundle: true,
     platform: 'browser',

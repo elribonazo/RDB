@@ -3,7 +3,6 @@ import {
     RIDB,
     SchemaFieldType,
 } from "../src";
-
 const schemaType = {
     version: 0,
     primaryKey: 'id',
@@ -15,12 +14,11 @@ const schemaType = {
         }
     }
 }
-
 import * as InMemory from "../src/storage/InMemory";
 
-describe('RIDB', () => {
+export default (platform: string) =>
+describe(`[${platform}]RIDB`, () => {
     it("Should be able to create a default database with a valid schema", async () => {
-
         const db =  new RIDB(
             {
                 demo: {
@@ -37,9 +35,7 @@ describe('RIDB', () => {
             },
             InMemory
         )
-
         await db.start();
-
         expect(db).to.not.be.undefined;
     });
     it("Should be able to create a database with a schema with nested fields", async () => {
@@ -106,7 +102,6 @@ describe('RIDB', () => {
     it("Should throw an error when schemaType is invalid");
     it("Should contain 1 collection per schema/model specified in the database create fn")
     it("Should validate the require fields are sent when calling db create")
-
     it('It should be able to create a new document from JSON schema', async () => {
         const db =  new RIDB(
             {

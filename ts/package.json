@@ -26,9 +26,10 @@
     "build:types:cjs": "npx dts-bundle-generator src/index.ts -o ./cjs/index.d.ts",
     "build:types:esm": "npx dts-bundle-generator src/index.ts -o ./esm/index.d.ts",
     "test": "npm run test:node && npm run test:browser",
-    "test:node": "vitest --environment node --run tests/*.test.ts",
-    "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --browser.headless --run tests/*.test.ts",
-    "test:coverage": "vitest run --coverage"
+    "test:node": "vitest --environment node --run tests/node.test.ts",
+    "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --run tests/browser.test.ts",
+    "test:serve": "npx vitest --ui tests/coverage.test.ts",
+    "coverage": "vitest run --coverage tests/coverage.test.ts"
   },
   "author": "",
   "license": "ISC",
@@ -36,6 +37,8 @@
     "@esbuild-plugins/node-resolve": "^0.2.2",
     "@types/node": "^20.14.2",
     "@vitest/browser": "^1.6.0",
+    "@vitest/coverage-istanbul": "^1.6.0",
+    "@vitest/ui": "^1.6.0",
     "esbuild": "0.21.5",
     "esbuild-plugin-wasm": "^1.1.0",
     "jsdom": "^24.1.0",
