@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "./build",             // Directory for JavaScript files
+    "declarationDir": "./build",   // Optional: Specify directory for declaration files
+    "target": "es2022",
+    "module": "es2022",
+    "moduleResolution": "node",
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "paths": {
+      "ridb-rust": ["../pkg"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:rust && npm run build:lib && awk '{ gsub(/module/, \"main\"); print }'  ../pkg/package.json > file.txt && mv file.txt ../pkg/package.json\n",
+    "build:rust": "cd .. && wasm-pack build --target=bundler",
+    "build:lib": "npx tsc --project tsconfig.json",
+    "test": "vitest --run tests/*.test.ts",
+    "test:coverage": "vitest run --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jsdom": "^24.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vite-plugin-top-level-await": "^1.4.1",
+    "vite-plugin-wasm": "^3.3.0",
+    "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "@types/node": "^20.14.2",
+    "ridb-rust": "file:../pkg"
+  }
+}
