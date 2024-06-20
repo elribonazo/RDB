@@ -28,7 +28,8 @@
     "test": "npm run test:node && npm run test:browser",
     "test:node": "vitest --environment node --run tests/node.test.ts",
     "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --run tests/browser.test.ts",
-    "test:serve": "npx vitest --ui tests/coverage.test.ts",
+    "test:coverage": "npx vitest tests/coverage.test.ts",
+    "test:serve":"npm run test:coverage -- --ui",
     "coverage": "vitest run --coverage tests/coverage.test.ts"
   },
   "author": "",
