@@ -1,8 +1,7 @@
-import {CreateStorage} from "ridb-rust";
-import {OpType, BaseStorage, RIDBTypes} from "../index";
+import {BaseStorage, CreateStorage, Doc, InternalsRecord, Operation, OpType, SchemaType} from "ridb-rust";
 
-class InMemory<T extends RIDBTypes.SchemaType> extends BaseStorage<T>   {
-    async write(operation:RIDBTypes.Operation<T>): Promise<RIDBTypes.Doc<T>> {
+class InMemory<T extends SchemaType> extends BaseStorage<T>   {
+    async write(operation:Operation<T>): Promise<Doc<T>> {
         if (operation.opType === OpType.CREATE) {
             return operation.data;
         }
@@ -31,7 +30,7 @@ class InMemory<T extends RIDBTypes.SchemaType> extends BaseStorage<T>   {
 }
 
 export const createStorage: CreateStorage = async (records) => Object.keys(records)
-    .reduce<RIDBTypes.InternalsRecord>((storages, name) => ({
+    .reduce<InternalsRecord>((storages, name) => ({
         ...storages,
         [name]: new InMemory(name, records[name])
     }), {})

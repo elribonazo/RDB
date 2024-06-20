@@ -1,19 +1,41 @@
 {
-  "name": "ts",
-  "version": "1.0.0",
+  "name": "ridb",
+  "version": "0.0.0",
   "description": "",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./cjs/index.d.ts",
+        "default": "./cjs/index.js"
+      },
+      "import": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/index.js"
+      },
+      "browser": {
+        "types": "./umd/index.d.ts",
+        "default": "./umd/index.js"
+      }
+    }
+  },
   "scripts": {
-    "build": "npm run build:rust && npm run build:lib && awk '{ gsub(/module/, \"main\"); print }'  ../pkg/package.json > file.txt && mv file.txt ../pkg/package.json\n",
+    "build": "npm run build:rust && npm run build:esbuild && npm run build:types:umd && npm run build:types:cjs && npm run build:types:esm",
     "build:rust": "cd .. && wasm-pack build --target=bundler",
-    "build:lib": "npx tsc --project tsconfig.json",
+    "build:esbuild": "node esbuild.config.js",
+    "build:types:umd": "npx dts-bundle-generator src/index.ts --umd-module-name RIDB -o ./umd/index.d.ts",
+    "build:types:cjs": "npx dts-bundle-generator src/index.ts -o ./cjs/index.d.ts",
+    "build:types:esm": "npx dts-bundle-generator src/index.ts -o ./esm/index.d.ts",
     "test": "vitest --run tests/*.test.ts",
     "test:coverage": "vitest run --coverage"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@esbuild-plugins/node-resolve": "^0.2.2",
+    "esbuild": "0.21.5",
+    "esbuild-plugin-wasm": "^1.1.0",
     "jsdom": "^24.1.0",
+    "ridb-rust": "file:../pkg",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "vite-plugin-top-level-await": "^1.4.1",
@@ -21,7 +43,6 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "@types/node": "^20.14.2",
-    "ridb-rust": "file:../pkg"
+    "@types/node": "^20.14.2"
   }
 }

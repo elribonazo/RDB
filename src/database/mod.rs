@@ -12,7 +12,7 @@ const TS_APPEND_CONTENT: &'static str = r#"
 export class Database<T extends SchemaTypeRecord> {
 
     static create<TS extends SchemaTypeRecord>(
-        internals: TS,
+        schemas: TS,
         storage: StorageModule
     ): Promise<Database<TS>>;
 
