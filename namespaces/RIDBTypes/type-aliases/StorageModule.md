@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / StorageModule
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / StorageModule
 
 # Type alias: StorageModule
 
@@ -20,4 +20,4 @@ Creates storage with the provided schema type records.
 
 ## Source
 
-pkg/ridb\_rust.d.ts:194
+../../pkg/ridb\_rust.d.ts:194

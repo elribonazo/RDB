@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../globals.md) / SchemaFieldType
+[@elribonazo/ridb](../README.md) / SchemaFieldType
 
 # Variable: SchemaFieldType
 
@@ -32,4 +32,4 @@
 
 ## Source
 
-[ts/src/schema/types.ts:2](https://github.com/elribonazo/RIDB/blob/f06d8130ee392b5866dffa2203082ded0a4f3aa0/ts/src/schema/types.ts#L2)
+[../src/schema/types.ts:2](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/schema/types.ts#L2)

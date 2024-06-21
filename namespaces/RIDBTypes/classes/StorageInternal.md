@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / StorageInternal
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / StorageInternal
 
 # Class: `abstract` StorageInternal\<T\>
 
@@ -44,7 +44,7 @@ A promise that resolves when the storage is closed.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:254
+../../pkg/ridb\_rust.d.ts:254
 
 ***
 
@@ -62,7 +62,7 @@ A promise that resolves to the number of documents.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:239
+../../pkg/ridb\_rust.d.ts:239
 
 ***
 
@@ -86,7 +86,7 @@ A promise that resolves to the found document or null.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:232
+../../pkg/ridb\_rust.d.ts:232
 
 ***
 
@@ -104,7 +104,7 @@ A promise that resolves when the query is complete.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:224
+../../pkg/ridb\_rust.d.ts:224
 
 ***
 
@@ -128,7 +128,7 @@ A promise that resolves when the document is removed.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:247
+../../pkg/ridb\_rust.d.ts:247
 
 ***
 
@@ -152,4 +152,4 @@ A promise that resolves to the document written.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:217
+../../pkg/ridb\_rust.d.ts:217

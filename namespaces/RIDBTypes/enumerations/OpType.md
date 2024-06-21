@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / OpType
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / OpType
 
 # Enumeration: OpType
 
@@ -18,7 +18,7 @@ Create operation.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:13
+../../pkg/ridb\_rust.d.ts:13
 
 ***
 
@@ -30,7 +30,7 @@ Delete operation.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:21
+../../pkg/ridb\_rust.d.ts:21
 
 ***
 
@@ -42,4 +42,4 @@ Update operation.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:17
+../../pkg/ridb\_rust.d.ts:17

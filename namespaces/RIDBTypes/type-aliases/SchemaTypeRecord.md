@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / SchemaTypeRecord
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / SchemaTypeRecord
 
 # Type alias: SchemaTypeRecord
 
@@ -16,4 +16,4 @@ Represents a record of schema types, where each key is a string and the value is
 
 ## Source
 
-pkg/ridb\_rust.d.ts:176
+../../pkg/ridb\_rust.d.ts:176

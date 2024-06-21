@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../globals.md) / RIDBTypes
+[@elribonazo/ridb](../../README.md) / RIDBTypes
 
 # Namespace: RIDBTypes
 

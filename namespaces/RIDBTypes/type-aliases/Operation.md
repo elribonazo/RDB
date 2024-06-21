@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / Operation
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / Operation
 
 # Type alias: Operation\<T\>
 
@@ -44,4 +44,4 @@ The type of operation to be performed (e.g., CREATE, UPDATE, DELETE).
 
 ## Source
 
-pkg/ridb\_rust.d.ts:560
+../../pkg/ridb\_rust.d.ts:560

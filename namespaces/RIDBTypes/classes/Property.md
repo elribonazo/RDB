@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / Property
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / Property
 
 # Class: Property
 
@@ -28,7 +28,7 @@ An optional array of nested properties for array-type properties.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:419
+../../pkg/ridb\_rust.d.ts:419
 
 ***
 
@@ -40,7 +40,7 @@ The maximum number of items for array-type properties, if applicable.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:424
+../../pkg/ridb\_rust.d.ts:424
 
 ***
 
@@ -52,7 +52,7 @@ The maximum length for string-type properties, if applicable.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:434
+../../pkg/ridb\_rust.d.ts:434
 
 ***
 
@@ -64,7 +64,7 @@ The minimum number of items for array-type properties, if applicable.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:429
+../../pkg/ridb\_rust.d.ts:429
 
 ***
 
@@ -76,7 +76,7 @@ The minimum length for string-type properties, if applicable.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:439
+../../pkg/ridb\_rust.d.ts:439
 
 ***
 
@@ -88,7 +88,7 @@ The primary key of the property, if applicable.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:414
+../../pkg/ridb\_rust.d.ts:414
 
 ***
 
@@ -104,7 +104,7 @@ An optional map of nested properties for object-type properties.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:449
+../../pkg/ridb\_rust.d.ts:449
 
 ***
 
@@ -116,7 +116,7 @@ An optional array of required fields for object-type properties.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:444
+../../pkg/ridb\_rust.d.ts:444
 
 ***
 
@@ -128,7 +128,7 @@ The type of the property.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:404
+../../pkg/ridb\_rust.d.ts:404
 
 ***
 
@@ -140,4 +140,4 @@ The version of the property, if applicable.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:409
+../../pkg/ridb\_rust.d.ts:409

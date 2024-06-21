@@ -2,15 +2,19 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / InMemory
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / BaseStorage
 
-# Class: InMemory\<T\>
+# Class: BaseStorage\<T\>
 
-Represents an in-memory storage system extending the base storage functionality.
+Represents the base storage implementation, extending `StorageInternal`.
 
 ## Extends
 
-- [`BaseStorage`](BaseStorage.md)\<`T`\>
+- [`StorageInternal`](StorageInternal.md)\<`T`\>
+
+## Extended by
+
+- [`InMemory`](InMemory.md)
 
 ## Type parameters
 
@@ -20,9 +24,9 @@ The schema type.
 
 ## Constructors
 
-### new InMemory()
+### new BaseStorage()
 
-> **new InMemory**\<`T`\>(`name`, `schema_type`): [`InMemory`](InMemory.md)\<`T`\>
+> **new BaseStorage**\<`T`\>(`name`, `schema_type`): [`BaseStorage`](BaseStorage.md)\<`T`\>
 
 Creates a new `BaseStorage` instance with the provided name and schema type.
 
@@ -38,15 +42,15 @@ The schema type of the storage.
 
 #### Returns
 
-[`InMemory`](InMemory.md)\<`T`\>
+[`BaseStorage`](BaseStorage.md)\<`T`\>
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`constructor`](BaseStorage.md#constructors)
+[`StorageInternal`](StorageInternal.md).[`constructor`](StorageInternal.md#constructors)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:274
+../../pkg/ridb\_rust.d.ts:274
 
 ## Properties
 
@@ -56,13 +60,9 @@ pkg/ridb\_rust.d.ts:274
 
 The name of the storage.
 
-#### Inherited from
-
-[`BaseStorage`](BaseStorage.md).[`name`](BaseStorage.md#name)
-
 #### Source
 
-pkg/ridb\_rust.d.ts:279
+../../pkg/ridb\_rust.d.ts:279
 
 ***
 
@@ -72,13 +72,9 @@ pkg/ridb\_rust.d.ts:279
 
 The schema associated with the storage.
 
-#### Inherited from
-
-[`BaseStorage`](BaseStorage.md).[`schema`](BaseStorage.md#schema)
-
 #### Source
 
-pkg/ridb\_rust.d.ts:284
+../../pkg/ridb\_rust.d.ts:284
 
 ## Methods
 
@@ -94,13 +90,13 @@ Closes the storage.
 
 A promise that resolves when the storage is closed.
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`close`](BaseStorage.md#close)
+[`StorageInternal`](StorageInternal.md).[`close`](StorageInternal.md#close)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:291
+../../pkg/ridb\_rust.d.ts:291
 
 ***
 
@@ -116,13 +112,13 @@ Counts the number of documents in the storage.
 
 A promise that resolves to the number of documents.
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`count`](BaseStorage.md#count)
+[`StorageInternal`](StorageInternal.md).[`count`](StorageInternal.md#count)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:298
+../../pkg/ridb\_rust.d.ts:298
 
 ***
 
@@ -144,13 +140,13 @@ The ID of the document to find.
 
 A promise that resolves to the found document or null.
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`findDocumentById`](BaseStorage.md#finddocumentbyid)
+[`StorageInternal`](StorageInternal.md).[`findDocumentById`](StorageInternal.md#finddocumentbyid)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:306
+../../pkg/ridb\_rust.d.ts:306
 
 ***
 
@@ -158,19 +154,15 @@ pkg/ridb\_rust.d.ts:306
 
 > **free**(): `void`
 
-Frees the resources used by the in-memory storage.
+Frees the resources used by the base storage.
 
 #### Returns
 
 `void`
 
-#### Overrides
-
-[`BaseStorage`](BaseStorage.md).[`free`](BaseStorage.md#free)
-
 #### Source
 
-pkg/ridb\_rust.d.ts:135
+../../pkg/ridb\_rust.d.ts:266
 
 ***
 
@@ -186,13 +178,13 @@ Queries the storage.
 
 A promise that resolves when the query is complete.
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`query`](BaseStorage.md#query)
+[`StorageInternal`](StorageInternal.md).[`query`](StorageInternal.md#query)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:313
+../../pkg/ridb\_rust.d.ts:313
 
 ***
 
@@ -214,13 +206,13 @@ The ID of the document to remove.
 
 A promise that resolves when the document is removed.
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`remove`](BaseStorage.md#remove)
+[`StorageInternal`](StorageInternal.md).[`remove`](StorageInternal.md#remove)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:321
+../../pkg/ridb\_rust.d.ts:321
 
 ***
 
@@ -242,10 +234,10 @@ The operation to write.
 
 A promise that resolves to the document written.
 
-#### Inherited from
+#### Overrides
 
-[`BaseStorage`](BaseStorage.md).[`write`](BaseStorage.md#write)
+[`StorageInternal`](StorageInternal.md).[`write`](StorageInternal.md#write)
 
 #### Source
 
-pkg/ridb\_rust.d.ts:329
+../../pkg/ridb\_rust.d.ts:329

@@ -1,3 +1,15 @@
+**@elribonazo/ridb** • **Docs**
+
+***
+
+# @elribonazo/ridb
+
+## Description
+
+This is a RXDB LevelDB storage that supports encryption middleware.
+In order to use this in your pluto-encrypted database you must write the following code:
+Creating a LevelDB compatible storage is very simple.
+
 # RIDB - Encryption at rest for everyone
 ## What is RIDB
 RIDB is a package that can be used in browsers and nodejs in order to build databases.
@@ -29,3 +41,30 @@ cd ts
 npm i
 npm run test
 ```
+
+```typescript
+import { createLevelDBStorage } from "@pluto-encrypted/leveldb";
+import { Database } from "@pluto-encrypted/database";
+//default password must be 32 bytes long
+const defaultPassword = new Uint8Array(32).fill(1);
+const database = db = await Database.createEncrypted({
+         name: `my-db`,
+         encryptionKey: defaultPassword,
+         storage: createLevelDBStorage({
+         dbName: "demo",
+         dbPath: "/tmp/demo"
+      })
+});
+```
+
+## Namespaces
+
+- [RIDBTypes](namespaces/RIDBTypes/README.md)
+
+## Classes
+
+- [RIDB](classes/RIDB.md)
+
+## Variables
+
+- [SchemaFieldType](variables/SchemaFieldType.md)

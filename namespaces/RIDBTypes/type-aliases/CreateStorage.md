@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / CreateStorage
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / CreateStorage
 
 # Type alias: CreateStorage()
 
@@ -28,4 +28,4 @@ The schema type records.
 
 ## Source
 
-pkg/ridb\_rust.d.ts:187
+../../pkg/ridb\_rust.d.ts:187

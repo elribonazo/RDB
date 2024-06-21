@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / Schema
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / Schema
 
 # Class: Schema\<T\>
 
@@ -34,7 +34,7 @@ An optional array of indexes.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:536
+../../pkg/ridb\_rust.d.ts:536
 
 ***
 
@@ -46,7 +46,7 @@ The primary key of the schema.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:521
+../../pkg/ridb\_rust.d.ts:521
 
 ***
 
@@ -58,7 +58,7 @@ The properties defined in the schema.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:541
+../../pkg/ridb\_rust.d.ts:541
 
 ***
 
@@ -70,7 +70,7 @@ An optional array of required fields.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:531
+../../pkg/ridb\_rust.d.ts:531
 
 ***
 
@@ -82,7 +82,7 @@ The schema definition.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:502
+../../pkg/ridb\_rust.d.ts:502
 
 ***
 
@@ -94,7 +94,7 @@ The type of the schema.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:526
+../../pkg/ridb\_rust.d.ts:526
 
 ***
 
@@ -106,7 +106,7 @@ The version of the schema.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:516
+../../pkg/ridb\_rust.d.ts:516
 
 ## Methods
 
@@ -124,7 +124,7 @@ The JSON representation of the schema.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:550
+../../pkg/ridb\_rust.d.ts:550
 
 ***
 
@@ -154,4 +154,4 @@ The created `Schema` instance.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:511
+../../pkg/ridb\_rust.d.ts:511

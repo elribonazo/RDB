@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / InternalsRecord
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / InternalsRecord
 
 # Type alias: InternalsRecord
 
@@ -16,4 +16,4 @@ Represents a record of internals, where each key is a string and the value is a 
 
 ## Source
 
-pkg/ridb\_rust.d.ts:337
+../../pkg/ridb\_rust.d.ts:337

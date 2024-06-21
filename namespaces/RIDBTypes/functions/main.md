@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / main
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / main
 
 # Function: main()
 
@@ -14,4 +14,4 @@
 
 ## Source
 
-pkg/ridb\_rust.d.ts:5
+../../pkg/ridb\_rust.d.ts:5

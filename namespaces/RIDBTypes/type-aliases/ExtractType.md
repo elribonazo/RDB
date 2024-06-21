@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / ExtractType
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / ExtractType
 
 # Type alias: ExtractType\<T\>
 
@@ -28,4 +28,4 @@ A string literal type representing the basic data type ('string', 'number', 'boo
 
 ## Source
 
-pkg/ridb\_rust.d.ts:36
+../../pkg/ridb\_rust.d.ts:36

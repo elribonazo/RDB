@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / Collection
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / Collection
 
 # Class: Collection\<T\>
 
@@ -38,7 +38,7 @@ The schema defining the structure of the documents in the collection.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:80
+../../pkg/ridb\_rust.d.ts:80
 
 ## Properties
 
@@ -48,7 +48,7 @@ pkg/ridb\_rust.d.ts:80
 
 #### Source
 
-pkg/ridb\_rust.d.ts:72
+../../pkg/ridb\_rust.d.ts:72
 
 ## Methods
 
@@ -72,7 +72,7 @@ A promise that resolves to the created document.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:112
+../../pkg/ridb\_rust.d.ts:112
 
 ***
 
@@ -96,7 +96,7 @@ A promise that resolves when the deletion is complete.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:120
+../../pkg/ridb\_rust.d.ts:120
 
 ***
 
@@ -114,7 +114,7 @@ A promise that resolves to an array of documents.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:87
+../../pkg/ridb\_rust.d.ts:87
 
 ***
 
@@ -138,7 +138,7 @@ A promise that resolves to the found document.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:95
+../../pkg/ridb\_rust.d.ts:95
 
 ***
 
@@ -166,7 +166,7 @@ A promise that resolves when the update is complete.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:104
+../../pkg/ridb\_rust.d.ts:104
 
 ***
 
@@ -200,4 +200,4 @@ A new Collection instance.
 
 #### Source
 
-pkg/ridb\_rust.d.ts:68
+../../pkg/ridb\_rust.d.ts:68

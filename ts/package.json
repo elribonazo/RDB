@@ -24,7 +24,6 @@
     "url": "https://github.com/elribonazo/RIDB.git"
   },
   "license": "Apache-2.0",
-
   "files": [
     "cjs",
     "esm",
@@ -32,7 +31,7 @@
     "**/*.md"
   ],
   "scripts": {
-    "docs": "typedoc",
+    "docs": "typedoc && cp -r docs/* .. && rm -rf docs",
     "build": "npm run build:rust && npm run build:esbuild && npm run build:types:umd && npm run build:types:cjs && npm run build:types:esm",
     "build:rust": "cd .. && wasm-pack build --target=bundler && awk '{gsub(/\"module\": \"ridb_rust.js\"/, \"\\\"main\\\": \\\"ridb_rust.js\\\"\"); print}' ./pkg/package.json > ./pkg/temp.json && mv ./pkg/temp.json ./pkg/package.json",
     "build:esbuild": "node esbuild.config.js",

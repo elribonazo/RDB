@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / Doc
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / Doc
 
 # Type alias: Doc\<T\>
 
@@ -20,4 +20,4 @@ type Document = Doc<Schema>; // Document is { name: string; age: number; }
 
 ## Source
 
-pkg/ridb\_rust.d.ts:50
+../../pkg/ridb\_rust.d.ts:50

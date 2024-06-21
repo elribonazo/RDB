@@ -2,7 +2,7 @@
 
 ***
 
-[@elribonazo/ridb](../../../globals.md) / [RIDBTypes](../README.md) / SchemaType
+[@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / SchemaType
 
 # Type alias: SchemaType
 
@@ -54,4 +54,4 @@ The version of the schema.
 
 ## Source
 
-pkg/ridb\_rust.d.ts:459
+../../pkg/ridb\_rust.d.ts:459
