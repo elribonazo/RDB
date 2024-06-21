@@ -3,9 +3,7 @@
     "entryPoints": ["./src/index.ts"],
     "out": "doc",
     "plugin": ["typedoc-plugin-markdown"],
-
     "excludePrivate": true,
     "excludeProtected": true,
-    "excludeExternals": true,
-
+    "excludeExternals": true
 }
