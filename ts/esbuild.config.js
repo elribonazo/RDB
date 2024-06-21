@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const { wasmLoader } = require('esbuild-plugin-wasm')
 const {NodeResolvePlugin} = require('@esbuild-plugins/node-resolve');
-
 const wasmPlugin = {
     name: 'wasm',
     setup(build) {
@@ -20,8 +19,6 @@ const wasmPlugin = {
         });
     },
 };
-
-
 const plugins = [
     NodeResolvePlugin({
         extensions: ['.ts', '.js', '.wasm'],
@@ -36,76 +33,63 @@ const plugins = [
     }),
 ]
 
-
-
+const generic = {
+    chunkNames: "[name]",
+    assetNames: "[name]",
+    entryPoints: ['src/index.ts'],
+    bundle: true,
+    sourcemap: true,
+    resolveExtensions: ['.ts', '.js', '.wasm'],
+    inject:['ridb-rust'],
+    mainFields: ['module', 'main'],
+}
 
 esbuild.build({
-    entryPoints: ['src/index.ts'],
-    outfile: 'cjs/index.js',
-    bundle: true,
+    ...generic,
+    outdir: 'cjs',
     platform: 'neutral',
     target: ['node14'],
-    sourcemap: true,
     format: 'cjs',
     plugins: [
         wasmPlugin,
         ...plugins
     ],
-    resolveExtensions: ['.ts', '.js', '.wasm'],
-    inject:['ridb-rust'],
-    mainFields: ['module', 'main'],
 }).catch((err) => {
-
     console.log(err)
     process.exit(1)
 });
-
-
-
 // Build ES module
 esbuild.build({
-    entryPoints: ['src/index.ts'],
-    outfile: 'esm/index.js',
-    bundle: true,
+    ...generic,
+    outdir: 'esm',
+    splitting: true,
     platform: 'neutral',
     target: ['esnext'],
-    sourcemap: true,
     format: 'esm',
     plugins: [
         wasmLoader(),
         ...plugins
     ],
-
-    resolveExtensions: ['.ts', '.js', '.wasm'],
-    mainFields: ['module', 'main'],
-    inject:['ridb-rust']
 }).catch((err) => {
     console.log(err)
     process.exit(1)
 });
-
-
-
 // Build browser version
 esbuild.build({
-    entryPoints: ['src/index.ts'],
-    outfile: 'umd/index.js',
-    bundle: true,
+    ...generic,
+    outdir: 'umd',
     platform: 'browser',
     target: ['es2020'],
-    sourcemap: true,
     format: 'iife',
     globalName:"RIDB",
     plugins: [
         wasmPlugin,
         ...plugins
     ],
-    resolveExtensions: ['.ts', '.js', '.wasm'],
     mainFields: ['browser', 'module', 'main'],
-    inject:['ridb-rust'],
+
 
 }).catch((err) => {
-
     console.log(err)
     process.exit(1)
 });

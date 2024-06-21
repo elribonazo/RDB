@@ -1,6 +1,5 @@
 pub mod storage_internal;
 pub mod base_storage;
-
 use js_sys::Reflect;
 use wasm_bindgen::{JsCast, JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
@@ -9,7 +8,6 @@ use crate::query::{Operation, OpType};
 use crate::schema::property_type::PropertyType;
 use crate::schema::Schema;
 use crate::storage::internals::storage_internal::StorageInternal;
-
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = r#"
 /**
@@ -22,20 +20,17 @@ export class Internals<T extends SchemaType> {
      * The base storage instance.
      */
     readonly internal: BaseStorage<T>;
-
     /**
      * Creates a new `Internals` instance with the provided base storage.
      *
      * @param {BaseStorage<T>} internal - The base storage instance.
      */
     constructor(internal: BaseStorage<T>);
-
     /**
      * The schema associated with the storage.
      */
     readonly schema: T;
 }
-
 "#;
 
 
@@ -64,6 +59,11 @@ impl Internals {
     pub fn new(internal: StorageInternal) -> Internals {
         let schema = internal.schema().clone();
         Internals { schema, internal }
+    }
+
+    #[wasm_bindgen(getter)]
+    pub fn internal(&self) -> StorageInternal {
+        self.internal.clone()
     }
 
     /// Ensures that the document has a primary key, generating one if necessary.
@@ -175,7 +175,6 @@ impl Internals {
         let primary_key = self.schema.primary_key.clone();
         let document = self.validate_schema(document_without_pk)
             .map_err(|e| JsValue::from(RIDBError::from("Could not add primary key")))?;
-
         let mut indexes = match self.schema.indexes.clone() {
             Some(mut existing) => {
                 existing.push(primary_key.clone());
@@ -187,7 +186,6 @@ impl Internals {
                 new_index
             }
         };
-
         let op = Operation {
             collection: self.internal.name().clone(),
             op_type: OpType::CREATE,

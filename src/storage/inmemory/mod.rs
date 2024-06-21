@@ -1,6 +1,4 @@
-use std::collections::HashMap;
-use js_sys::Reflect;
-use serde_wasm_bindgen::to_value;
+use js_sys::{Object, Reflect};
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
 use crate::query::{Operation, OpType};
@@ -26,12 +24,12 @@ export class InMemory<T extends SchemaType> extends BaseStorage<T> {
 #[wasm_bindgen(skip_typescript)]
 pub struct InMemory{
     pub(crate) base: BaseStorage,
-    pub(crate) by_index: HashMap<String, Vec<JsValue>>
+    pub(crate) by_index: Object
 }
 
 pub trait StorageOperations {
     fn add_index(&mut self, name: String, row: JsValue);
-    async fn write(&mut self, op: Operation) -> Result<JsValue, JsValue>;
+    async fn write(&mut self, op: &Operation) -> Result<JsValue, JsValue>;
     async fn query(&self) -> Result<JsValue, JsValue>;
     async fn find_document_by_id(&self) -> Result<JsValue, JsValue>;
     async fn count(&self) -> Result<JsValue, JsValue>;
@@ -41,33 +39,39 @@ pub trait StorageOperations {
 
 impl StorageOperations for InMemory {
     fn add_index(&mut self, name: String, row: JsValue) {
-        let exists = self.by_index.get(&name);
-        if let Some(mut index) = exists {
-            let mut cloned = index.clone();
-            cloned.push(row);
-            self.by_index.insert(name, cloned);
-        } else {
-            self.by_index.insert(name, vec![row]);
-        }
+        let index_key = JsValue::from(name);
+        let primary_key = JsValue::from(&self.base.schema.primary_key);
+        let primary_key_value = Reflect::get(&row, &JsValue::from(&primary_key)).expect("Cannot extract primary key");
+        let obj:Object = match Reflect::get(&self.by_index, &index_key) {
+            Ok(object) => match object.is_undefined() || object.is_null() {
+                true => Object::new(),
+                false => Object::from(object)
+            },
+            Err(_) => Object::new()
+        };
+        Reflect::set(
+            &obj,
+            &primary_key_value,
+            &row
+        ).expect("Cannot add row to object");
+        Reflect::set(
+            &self.by_index,
+            &index_key,
+            &obj
+        ).expect("Cannot restore index documents");
     }
 
-    async fn write(&mut self, op: Operation) -> Result<JsValue, JsValue> {
-        match op.op_type {
+    async fn write(&mut self, op: &Operation) -> Result<JsValue, JsValue> {
+        match &op.op_type {
             OpType::CREATE => {
-                let indexes = op.indexes;
+                let indexes = &op.indexes;
                 for index in indexes {
-                    let index_val = Reflect::get(
-                        &op.data,
-                        &JsValue::from_str(index.as_str())
-                    ).unwrap();
                     let collection_index = format!("{}+{}", self.base.name, index);
-                    self.add_index(collection_index, index_val);
+                    self.add_index(collection_index, op.data.clone());
                 }
-                Ok(op.data)
+                Ok(op.data.clone())
             },
-            _ => {
-                Err(JsValue::from_str("Optype is not supported"))
-            }
+            _ => Err(JsValue::from_str("Optype is not supported"))
         }
     }
 
@@ -102,15 +106,15 @@ impl InMemory {
         ).unwrap();
         InMemory {
             base,
-            by_index: HashMap::new()
+            by_index: Object::new()
         }
     }
 
     #[wasm_bindgen(getter)]
     pub fn by_index(&self) -> Result<JsValue, JsValue> {
-        let hash_map: HashMap<String, Vec<String>> = HashMap::new();
+        let by_index_object = self.by_index.clone();
         Ok(
-            to_value(&hash_map).unwrap()
+            JsValue::from(by_index_object)
         )
     }
 
@@ -125,7 +129,7 @@ impl InMemory {
     }
 
     #[wasm_bindgen(js_name = "write")]
-    pub async fn write_js(&mut self, op: Operation) -> Result<JsValue, JsValue> {
+    pub async fn write_js(&mut self, op: &Operation) -> Result<JsValue, JsValue> {
         self.write(op).await
     }
 

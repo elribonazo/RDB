@@ -68,7 +68,7 @@ export class RIDB<T extends SchemaTypeRecord> {
         private schemas: T
     ) {}
 
-    get db() {
+    private get db() {
         if (!db) {
             throw new Error("Start the database first")
         }

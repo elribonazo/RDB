@@ -30,7 +30,7 @@ export type ExtractType<T extends string> = T extends 'string' ? string :
  * Doc is a utility type that transforms a schema type into a document type where each property is mapped to its extracted type.
  *
  * @template T - A schema type with a 'properties' field where each property's type is represented as a string.
- * 
+ *
  * type Document = Doc<Schema>; // Document is { name: string; age: number; }
  */
 export type Doc<T extends SchemaType> = {
@@ -134,6 +134,11 @@ impl Collection {
         }
     }
 
+    #[wasm_bindgen(getter)]
+    pub fn internals(&self) -> Internals {
+        self.internals.clone()
+    }
+
     /// Finds and returns all documents in the collection.
     ///
     /// This function is asynchronous and returns a `Schema` representing
@@ -147,7 +152,7 @@ impl Collection {
     ///
     /// This function is asynchronous.
     #[wasm_bindgen(js_name="findOne")]
-    pub async fn find_one(&self) {
+    pub async fn find_one(&self, primary_key: String) {
         todo!()
     }
 

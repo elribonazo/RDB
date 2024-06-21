@@ -1,4 +1,4 @@
-import {BaseStorage, CreateStorage, Doc, InternalsRecord, Operation, OpType, SchemaType} from "../../../pkg/ridb_rust";
+import {BaseStorage, Doc, Operation, OpType, SchemaType} from "../../../pkg/ridb_rust";
 
 export class InMemory<T extends SchemaType> extends BaseStorage<T>   {
     async write(operation:Operation<T>): Promise<Doc<T>> {
@@ -27,4 +27,5 @@ export class InMemory<T extends SchemaType> extends BaseStorage<T>   {
     close(): Promise<void> {
         throw new Error("Method not implemented.");
     }
+    
 }

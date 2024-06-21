@@ -3,8 +3,9 @@ import {
     RIDB,
     SchemaFieldType,
 } from "../src";
-import {InMemory} from "./fixtures/InMemory";
+
 import {RIDBTypes} from "../cjs";
+
 const schemaType = {
     version: 0,
     primaryKey: 'id',

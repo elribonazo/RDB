@@ -1,6 +1,6 @@
 {
   "name": "@elribonazo/ridb",
-  "version": "0.0.0-rc10",
+  "version": "0.0.0-rc11",
   "description": "",
   "exports": {
     ".": {
@@ -34,7 +34,7 @@
     "docs": "typedoc --cleanOutputDir false",
     "build": "npm run build:rust && npm run build:esbuild && npm run build:types:umd && npm run build:types:cjs && npm run build:types:esm",
     "build:rust": "cd .. && wasm-pack build --target=bundler && awk '{gsub(/\"module\": \"ridb_rust.js\"/, \"\\\"main\\\": \\\"ridb_rust.js\\\"\"); print}' ./pkg/package.json > ./pkg/temp.json && mv ./pkg/temp.json ./pkg/package.json",
-    "build:esbuild": "node esbuild.config.js",
+    "build:esbuild": "rm -rf cjs esm umd && node esbuild.config.js",
     "build:types:umd": "npx dts-bundle-generator src/index.ts --umd-module-name RIDB -o ./umd/index.d.ts",
     "build:types:cjs": "npx dts-bundle-generator src/index.ts -o ./cjs/index.d.ts",
     "build:types:esm": "npx dts-bundle-generator src/index.ts -o ./esm/index.d.ts",
