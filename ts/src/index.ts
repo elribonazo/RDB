@@ -1,12 +1,18 @@
-import {SchemaTypeRecord, StorageModule, Database} from "../../pkg/ridb_rust";
+import {
+    SchemaTypeRecord,
+    Database,
+    InternalsRecord,
+    BaseStorage,
+    SchemaType
+} from "../../pkg/ridb_rust";
 export type * as RIDBTypes from "../../pkg/ridb_rust";
 
 export * from './schema/types';
 export class RIDB<T extends SchemaTypeRecord> {
+    private _internal: typeof import("../../pkg/ridb_rust") | undefined;
     private _db: Database<T> | undefined;
     constructor(
-        private schemas: T,
-        private storage: StorageModule
+        private schemas: T
     ) {}
 
     get db() {
@@ -16,17 +22,39 @@ export class RIDB<T extends SchemaTypeRecord> {
         return this._db;
     }
 
+    get internal() {
+        if (!this._internal) {
+            throw new Error("Start the database first")
+        }
+        return this._internal;
+    }
+
     get collections() {
         return this.db.collections;
     }
 
-    async start() {
-        const internal = await import("../../pkg/ridb_rust")
-        const {Database} = internal;
-        this._db = await Database.create(
-            this.schemas,
-            this.storage
-        )
+    async load() {
+        if (!this._internal) {
+            this._internal = await import("../../pkg/ridb_rust");
+        }
+        return this.internal;
     }
 
+     async start(Storage?: typeof BaseStorage<SchemaType>) {
+        const DefaultStorage = Storage ?? (await this.load()).InMemory;
+        if (!this._db) {
+            const {Database} = await this.load();
+            this._db = await Database.create(
+                this.schemas,
+                {
+                    createStorage: async (schemas) => Object.keys(schemas)
+                        .reduce<InternalsRecord>((storages, name) => ({
+                            ...storages,
+                            [name]: new DefaultStorage(name, schemas[name])
+                        }), {})
+                }
+            )
+        }
+        return this.db;
+    }
 }

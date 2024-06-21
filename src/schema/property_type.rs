@@ -13,8 +13,16 @@ pub enum PropertyType {
     Object="object",
 }
 
-
 impl Serialize for PropertyType {
+    /// Serializes a `PropertyType` into an integer value.
+    ///
+    /// # Arguments
+    ///
+    /// * `serializer` - The serializer to use for converting the `PropertyType`.
+    ///
+    /// # Returns
+    ///
+    /// * `Result<S::Ok, S::Error>` - A result indicating success or failure.
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
         where
             S: Serializer,
@@ -32,6 +40,15 @@ impl Serialize for PropertyType {
 }
 
 impl<'de> Deserialize<'de> for PropertyType {
+    /// Deserializes an integer value into a `PropertyType`.
+    ///
+    /// # Arguments
+    ///
+    /// * `deserializer` - The deserializer to use for converting the integer value.
+    ///
+    /// # Returns
+    ///
+    /// * `Result<Self, D::Error>` - A result indicating success or failure.
     fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
         where
             D: Deserializer<'de>,
@@ -40,16 +57,34 @@ impl<'de> Deserialize<'de> for PropertyType {
     }
 }
 
+/// Visitor for deserializing a `PropertyType` from a string.
 struct PropertyTypeVisitor;
-
 
 impl<'de> Visitor<'de> for PropertyTypeVisitor {
     type Value = PropertyType;
 
+    /// Describes what the visitor expects to receive.
+    ///
+    /// # Arguments
+    ///
+    /// * `formatter` - The formatter to use for displaying the expected value.
+    ///
+    /// # Returns
+    ///
+    /// * `fmt::Result` - A result indicating success or failure.
     fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
         formatter.write_str("an integer between 0 and 4 representing a PropertyType")
     }
 
+    /// Visits a string value and attempts to convert it into a `PropertyType`.
+    ///
+    /// # Arguments
+    ///
+    /// * `value` - The string value to convert.
+    ///
+    /// # Returns
+    ///
+    /// * `Result<PropertyType, E>` - A result indicating success or failure.
     fn visit_str<E>(self, value: &str) -> Result<PropertyType, E>
         where
             E: de::Error,

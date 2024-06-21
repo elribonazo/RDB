@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const { wasmLoader } = require('esbuild-plugin-wasm')
 const {NodeResolvePlugin} = require('@esbuild-plugins/node-resolve');
-const { execSync } = require('child_process');
 
 const wasmPlugin = {
     name: 'wasm',
@@ -24,9 +23,8 @@ const wasmPlugin = {
 
 
 const plugins = [
-
     NodeResolvePlugin({
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.wasm'],
         onResolved: (resolved) => {
             if (resolved.includes('node_modules')) {
                 return {
@@ -39,11 +37,10 @@ const plugins = [
 ]
 
 
-execSync('tsc', { stdio: 'inherit' });
 
 
 esbuild.build({
-    entryPoints: ['src/shared.ts'],
+    entryPoints: ['src/index.ts'],
     outfile: 'cjs/index.js',
     bundle: true,
     platform: 'neutral',
@@ -55,13 +52,19 @@ esbuild.build({
         ...plugins
     ],
     resolveExtensions: ['.ts', '.js', '.wasm'],
-    inject:['ridb-rust']
+    inject:['ridb-rust'],
+    mainFields: ['module', 'main'],
+}).catch((err) => {
 
-}).catch(() => process.exit(1));
+    console.log(err)
+    process.exit(1)
+});
+
+
 
 // Build ES module
 esbuild.build({
-    entryPoints: ['src/shared.ts'],
+    entryPoints: ['src/index.ts'],
     outfile: 'esm/index.js',
     bundle: true,
     platform: 'neutral',
@@ -76,24 +79,34 @@ esbuild.build({
     resolveExtensions: ['.ts', '.js', '.wasm'],
     mainFields: ['module', 'main'],
     inject:['ridb-rust']
-}).catch(() => process.exit(1));
+}).catch((err) => {
+    console.log(err)
+    process.exit(1)
+});
+
+
 
 // Build browser version
 esbuild.build({
-    entryPoints: ['src/shared.ts'],
+    entryPoints: ['src/index.ts'],
     outfile: 'umd/index.js',
     bundle: true,
     platform: 'browser',
     target: ['es2020'],
     sourcemap: true,
-    format: 'umd',
+    format: 'iife',
+    globalName:"RIDB",
     plugins: [
         wasmPlugin,
         ...plugins
     ],
     resolveExtensions: ['.ts', '.js', '.wasm'],
     mainFields: ['browser', 'module', 'main'],
-    inject:['ridb-rust']
+    inject:['ridb-rust'],
 
-}).catch(() => process.exit(1));
+}).catch((err) => {
+
+    console.log(err)
+    process.exit(1)
+});
 

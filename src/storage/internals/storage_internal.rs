@@ -6,15 +6,36 @@ use crate::schema::Schema;
 
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = r#"
-export type SchemaTypeRecord = { [name: string]: SchemaType };
+/**
+ * Represents a record of schema types, where each key is a string and the value is a `SchemaType`.
+ */
+export type SchemaTypeRecord = {
+    [name: string]: SchemaType
+};
+
+/**
+ * Represents a function type for creating storage with the provided schema type records.
+ *
+ * @template T - The schema type record.
+ * @param {T} records - The schema type records.
+ * @returns {Promise<InternalsRecord>} A promise that resolves to the created internals record.
+ */
 export type CreateStorage = <T extends SchemaTypeRecord = SchemaTypeRecord>(
     records: T
-) => Promise<InternalsRecord>
-export type StorageModule = {
-    createStorage: CreateStorage
-}
-"#;
+) => Promise<InternalsRecord>;
 
+/**
+ * Represents a storage module with a method for creating storage.
+ */
+export type StorageModule = {
+    /**
+     * Creates storage with the provided schema type records.
+     *
+     * @type {CreateStorage}
+     */
+    createStorage: CreateStorage
+};
+"#;
 
 
 #[wasm_bindgen]
