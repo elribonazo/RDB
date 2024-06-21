@@ -1,7 +1,8 @@
 {
     "$schema": "https://typedoc.org/schema.json",
+    "basePath": "./ts",
     "entryPoints": ["./src/index.ts"],
-    "out": "doc",
+    "out": "./",
     "plugin": ["typedoc-plugin-markdown"],
     "excludePrivate": true,
     "excludeProtected": true,
