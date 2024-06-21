@@ -1,6 +1,6 @@
 {
   "name": "@elribonazo/ridb",
-  "version": "0.0.0-rc2",
+  "version": "0.0.0-rc4",
   "description": "",
   "exports": {
     ".": {
@@ -18,7 +18,14 @@
       }
     }
   },
+  "files": [
+    "cjs",
+    "esm",
+    "umd",
+    "**/*.md"
+  ],
   "scripts": {
+    "docs": "typedoc",
     "build": "npm run build:rust && npm run build:esbuild && npm run build:types:umd && npm run build:types:cjs && npm run build:types:esm",
     "build:rust": "cd .. && wasm-pack build --target=bundler && awk '{gsub(/\"module\": \"ridb_rust.js\"/, \"\\\"main\\\": \\\"ridb_rust.js\\\"\"); print}' ./pkg/package.json > ./pkg/temp.json && mv ./pkg/temp.json ./pkg/package.json",
     "build:esbuild": "node esbuild.config.js",
@@ -29,7 +36,7 @@
     "test:node": "vitest --environment node --run tests/node.test.ts",
     "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --run tests/browser.test.ts",
     "test:coverage": "npx vitest tests/coverage.test.ts",
-    "test:serve":"npm run test:coverage -- --ui",
+    "test:serve": "npm run test:coverage -- --ui",
     "coverage": "vitest run --coverage tests/coverage.test.ts"
   },
   "author": "",
@@ -44,6 +51,8 @@
     "esbuild-plugin-wasm": "^1.1.0",
     "jsdom": "^24.1.0",
     "ts-node": "^10.9.2",
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "^4.0.3",
     "typescript": "^5.4.5",
     "vite-plugin-top-level-await": "^1.4.1",
     "vite-plugin-wasm": "^3.3.0",

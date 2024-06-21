@@ -1,7 +1,6 @@
-
 {
     "$schema": "https://typedoc.org/schema.json",
-    "entryPoints": ["./src/index.ts", "./src/secondary-entry.ts"],
+    "entryPoints": ["./src/index.ts"],
     "out": "doc",
     "plugin": ["typedoc-plugin-markdown"],
 
