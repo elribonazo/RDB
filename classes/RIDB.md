@@ -26,7 +26,37 @@
 
 #### Source
 
-[../src/index.ts:70](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/index.ts#L70)
+[ts/src/index.ts:65](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L65)
+
+## Properties
+
+### \_db
+
+> `private` **\_db**: `undefined` \| [`Database`](../namespaces/RIDBTypes/classes/Database.md)\<`T`\>
+
+#### Source
+
+[ts/src/index.ts:64](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L64)
+
+***
+
+### \_internal
+
+> `private` **\_internal**: `undefined` \| [`RIDBTypes`](../namespaces/RIDBTypes/README.md)
+
+#### Source
+
+[ts/src/index.ts:63](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L63)
+
+***
+
+### schemas
+
+> `private` **schemas**: `T`
+
+#### Source
+
+[ts/src/index.ts:66](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L66)
 
 ## Accessors
 
@@ -40,7 +70,7 @@
 
 #### Source
 
-[../src/index.ts:88](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/index.ts#L88)
+[ts/src/index.ts:83](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L83)
 
 ***
 
@@ -54,7 +84,7 @@
 
 #### Source
 
-[../src/index.ts:74](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/index.ts#L74)
+[ts/src/index.ts:69](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L69)
 
 ***
 
@@ -68,7 +98,7 @@
 
 #### Source
 
-[../src/index.ts:81](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/index.ts#L81)
+[ts/src/index.ts:76](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L76)
 
 ## Methods
 
@@ -82,7 +112,7 @@
 
 #### Source
 
-[../src/index.ts:92](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/index.ts#L92)
+[ts/src/index.ts:87](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L87)
 
 ***
 
@@ -100,4 +130,4 @@
 
 #### Source
 
-[../src/index.ts:99](https://github.com/elribonazo/RIDB/blob/e7a589ed88e5f8a1cf6a9f63844d534653394964/ts/src/index.ts#L99)
+[ts/src/index.ts:94](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L94)

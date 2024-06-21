@@ -54,4 +54,4 @@ The version of the schema.
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:459
+pkg/ridb\_rust.d.ts:459

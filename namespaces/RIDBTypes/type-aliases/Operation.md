@@ -44,4 +44,4 @@ The type of operation to be performed (e.g., CREATE, UPDATE, DELETE).
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:560
+pkg/ridb\_rust.d.ts:560

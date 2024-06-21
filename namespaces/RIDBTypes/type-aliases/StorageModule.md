@@ -20,4 +20,4 @@ Creates storage with the provided schema type records.
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:194
+pkg/ridb\_rust.d.ts:194

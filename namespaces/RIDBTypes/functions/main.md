@@ -14,4 +14,4 @@
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:5
+pkg/ridb\_rust.d.ts:5

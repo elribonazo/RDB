@@ -28,4 +28,4 @@ The schema type records.
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:187
+pkg/ridb\_rust.d.ts:187

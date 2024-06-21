@@ -36,7 +36,7 @@ This is a read-only property where the key is the name of the collection and the
 
 #### Source
 
-../../pkg/ridb\_rust.d.ts:165
+pkg/ridb\_rust.d.ts:165
 
 ## Methods
 
@@ -70,4 +70,4 @@ A promise that resolves to the created `Database` instance.
 
 #### Source
 
-../../pkg/ridb\_rust.d.ts:155
+pkg/ridb\_rust.d.ts:155

@@ -20,4 +20,4 @@ type Document = Doc<Schema>; // Document is { name: string; age: number; }
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:50
+pkg/ridb\_rust.d.ts:50

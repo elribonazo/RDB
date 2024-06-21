@@ -16,4 +16,4 @@ Represents a record of internals, where each key is a string and the value is a 
 
 ## Source
 
-../../pkg/ridb\_rust.d.ts:337
+pkg/ridb\_rust.d.ts:337
