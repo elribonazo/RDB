@@ -48,36 +48,31 @@
  * ```
  * 
  */
-
 import {
     SchemaTypeRecord,
     Database,
     InternalsRecord,
     BaseStorage,
-    SchemaType
+    SchemaType,
 } from "../../pkg/ridb_rust";
 export type * as RIDBTypes from "../../pkg/ridb_rust";
 
 export * from './schema/types';
+
+
+let internal: typeof import("../../pkg/ridb_rust") | undefined;
+let db:  Database<SchemaTypeRecord> | undefined;
+
 export class RIDB<T extends SchemaTypeRecord> {
-    private _internal: typeof import("../../pkg/ridb_rust") | undefined;
-    private _db: Database<T> | undefined;
     constructor(
         private schemas: T
     ) {}
 
     get db() {
-        if (!this._db) {
+        if (!db) {
             throw new Error("Start the database first")
         }
-        return this._db;
-    }
-
-    get internal() {
-        if (!this._internal) {
-            throw new Error("Start the database first")
-        }
-        return this._internal;
+        return db;
     }
 
     get collections() {
@@ -85,17 +80,17 @@ export class RIDB<T extends SchemaTypeRecord> {
     }
 
     async load() {
-        if (!this._internal) {
-            this._internal = await import("../../pkg/ridb_rust");
+        if (!internal) {
+            internal = await import("../../pkg/ridb_rust");
         }
-        return this.internal;
+        return internal;
     }
 
      async start(Storage?: typeof BaseStorage<SchemaType>) {
-        const DefaultStorage = Storage ?? (await this.load()).InMemory;
-        if (!this._db) {
+        const DefaultStorage= Storage ?? (await this.load()).InMemory;
+        if (!db) {
             const {Database} = await this.load();
-            this._db = await Database.create(
+            db = await Database.create(
                 this.schemas,
                 {
                     createStorage: async (schemas) => Object.keys(schemas)
@@ -106,6 +101,6 @@ export class RIDB<T extends SchemaTypeRecord> {
                 }
             )
         }
-        return this.db;
+        return db;
     }
 }

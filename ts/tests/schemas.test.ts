@@ -18,7 +18,8 @@ const schemaType = {
 }
 
 const storages: (typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>|undefined)[] = [
-    InMemory,
+    //Enable testing other storages
+    //InMemory,
     undefined
 ]
 

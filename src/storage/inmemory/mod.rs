@@ -1,3 +1,6 @@
+use std::collections::HashMap;
+use js_sys::Reflect;
+use serde_wasm_bindgen::to_value;
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
 use crate::query::{Operation, OpType};
@@ -23,10 +26,12 @@ export class InMemory<T extends SchemaType> extends BaseStorage<T> {
 #[wasm_bindgen(skip_typescript)]
 pub struct InMemory{
     pub(crate) base: BaseStorage,
+    pub(crate) by_index: HashMap<String, Vec<JsValue>>
 }
 
 pub trait StorageOperations {
-    async fn write(&self, op: Operation) -> Result<JsValue, JsValue>;
+    fn add_index(&mut self, name: String, row: JsValue);
+    async fn write(&mut self, op: Operation) -> Result<JsValue, JsValue>;
     async fn query(&self) -> Result<JsValue, JsValue>;
     async fn find_document_by_id(&self) -> Result<JsValue, JsValue>;
     async fn count(&self) -> Result<JsValue, JsValue>;
@@ -34,11 +39,30 @@ pub trait StorageOperations {
     async fn close(&self) -> Result<JsValue, JsValue>;
 }
 
-
 impl StorageOperations for InMemory {
-    async fn write(&self, op: Operation) -> Result<JsValue, JsValue> {
+    fn add_index(&mut self, name: String, row: JsValue) {
+        let exists = self.by_index.get(&name);
+        if let Some(mut index) = exists {
+            let mut cloned = index.clone();
+            cloned.push(row);
+            self.by_index.insert(name, cloned);
+        } else {
+            self.by_index.insert(name, vec![row]);
+        }
+    }
+
+    async fn write(&mut self, op: Operation) -> Result<JsValue, JsValue> {
         match op.op_type {
             OpType::CREATE => {
+                let indexes = op.indexes;
+                for index in indexes {
+                    let index_val = Reflect::get(
+                        &op.data,
+                        &JsValue::from_str(index.as_str())
+                    ).unwrap();
+                    let collection_index = format!("{}+{}", self.base.name, index);
+                    self.add_index(collection_index, index_val);
+                }
                 Ok(op.data)
             },
             _ => {
@@ -77,8 +101,17 @@ impl InMemory {
             schema_type
         ).unwrap();
         InMemory {
-            base
+            base,
+            by_index: HashMap::new()
         }
+    }
+
+    #[wasm_bindgen(getter)]
+    pub fn by_index(&self) -> Result<JsValue, JsValue> {
+        let hash_map: HashMap<String, Vec<String>> = HashMap::new();
+        Ok(
+            to_value(&hash_map).unwrap()
+        )
     }
 
     #[wasm_bindgen(getter)]
@@ -92,7 +125,7 @@ impl InMemory {
     }
 
     #[wasm_bindgen(js_name = "write")]
-    pub async fn write_js(&self, op: Operation) -> Result<JsValue, JsValue> {
+    pub async fn write_js(&mut self, op: Operation) -> Result<JsValue, JsValue> {
         self.write(op).await
     }
 
