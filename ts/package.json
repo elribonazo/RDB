@@ -1,6 +1,6 @@
 {
   "name": "@elribonazo/ridb",
-  "version": "0.0.0-rc9",
+  "version": "0.0.0-rc10",
   "description": "",
   "exports": {
     ".": {
@@ -44,7 +44,7 @@
     "test:coverage": "npx vitest tests/coverage.test.ts",
     "test:serve": "npm run test:coverage -- --ui",
     "coverage": "vitest run --coverage tests/coverage.test.ts",
-    "prepublishOnly": "cp ../README.MD ./README.MD",
+    "prepublishOnly": "cp ../README.MD ./README.MD && npm run build",
     "postpublish": "rm ./README.MD"
   },
   "devDependencies": {
