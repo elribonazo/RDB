@@ -1,0 +1,12 @@
+
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "entryPoints": ["./src/index.ts", "./src/secondary-entry.ts"],
+    "out": "doc",
+    "plugin": ["typedoc-plugin-markdown"],
+
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "excludeExternals": true,
+
+}
