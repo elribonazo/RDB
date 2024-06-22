@@ -3,7 +3,7 @@
     "target": "es2020",
     "module": "ESNext",
     "moduleResolution": "node",
-    "declaration": false,
+    "declaration": true,
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

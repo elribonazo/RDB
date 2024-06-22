@@ -4,3 +4,4 @@ esm/*
 umd/*
 .idea
 coverage
+build/*

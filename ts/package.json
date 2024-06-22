@@ -1,43 +1,30 @@
 {
   "name": "@elribonazo/ridb",
-  "version": "0.0.0-rc11",
-  "description": "",
-  "exports": {
-    ".": {
-      "require": {
-        "types": "./cjs/index.d.ts",
-        "default": "./cjs/index.js"
-      },
-      "import": {
-        "types": "./esm/index.d.ts",
-        "default": "./esm/index.js"
-      },
-      "browser": {
-        "types": "./umd/index.d.ts",
-        "default": "./umd/index.js"
-      }
-    }
-  },
-  "author": "Javier ribo <elribonazo@gmail.com>",
+  "version": "0.0.0-rc17",
+  "description": "RIDB ES Module",
+  "main": "./build/index.js",
+  "types":"./build/index.d.ts",
+  "type": "module",
+  "author": "elribonazo@gmail.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/elribonazo/RIDB.git"
+    "url": "git+https://github.com/elribonazo/RIDB.git"
   },
   "license": "Apache-2.0",
   "files": [
-    "cjs",
-    "esm",
-    "umd",
+    "build",
     "**/*.md"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "docs": "typedoc --cleanOutputDir false",
-    "build": "npm run build:rust && npm run build:esbuild && npm run build:types:umd && npm run build:types:cjs && npm run build:types:esm",
-    "build:rust": "cd .. && wasm-pack build --target=bundler && awk '{gsub(/\"module\": \"ridb_rust.js\"/, \"\\\"main\\\": \\\"ridb_rust.js\\\"\"); print}' ./pkg/package.json > ./pkg/temp.json && mv ./pkg/temp.json ./pkg/package.json",
-    "build:esbuild": "rm -rf cjs esm umd && node esbuild.config.js",
-    "build:types:umd": "npx dts-bundle-generator src/index.ts --umd-module-name RIDB -o ./umd/index.d.ts",
-    "build:types:cjs": "npx dts-bundle-generator src/index.ts -o ./cjs/index.d.ts",
-    "build:types:esm": "npx dts-bundle-generator src/index.ts -o ./esm/index.d.ts",
+    "runtest": "npm run build && npm run test:node",
+    "build": "npm run build:rust && npm run build:esbuild && npm run build:types:esm",
+    "build:rust": "sh build.sh",
+    "build:esbuild": "rm -rf build && node esbuild.config.js",
+    "build:types:esm": "npx dts-bundle-generator src/index.ts -o ./build/index.d.ts",
     "test": "npm run test:node && npm run test:browser",
     "test:node": "vitest --environment node --run tests/node.test.ts",
     "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --run tests/browser.test.ts",
@@ -55,6 +42,7 @@
     "@vitest/ui": "^1.6.0",
     "esbuild": "0.21.5",
     "esbuild-plugin-wasm": "^1.1.0",
+    "esbuild-plugin-wasm-pack": "^1.1.0",
     "jsdom": "^24.1.0",
     "ts-node": "^10.9.2",
     "typedoc": "^0.25.13",

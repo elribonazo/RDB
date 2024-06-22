@@ -1,10 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import {
+
     RIDB,
     SchemaFieldType,
-} from "../src";
+} from "../build";
 
-import {RIDBTypes} from "../cjs";
+import  {RIDBTypes} from "../build";
 
 const schemaType = {
     version: 0,
@@ -19,8 +20,6 @@ const schemaType = {
 }
 
 const storages: (typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>|undefined)[] = [
-    //Enable testing other storages
-    //InMemory,
     undefined
 ]
 

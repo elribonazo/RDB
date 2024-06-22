@@ -46,24 +46,17 @@
  *       })
  * });
  * ```
- * 
+ *
  */
-import {
-    SchemaTypeRecord,
-    Database,
-    InternalsRecord,
-    BaseStorage,
-    SchemaType,
-} from "../../pkg/ridb_rust";
+import wasmBuffer from "../../pkg/ridb_rust_bg.wasm"
+import type * as RIDBTypes from "../../pkg/ridb_rust";
 export type * as RIDBTypes from "../../pkg/ridb_rust";
-
-export * from './schema/types';
 
 
 let internal: typeof import("../../pkg/ridb_rust") | undefined;
-let db:  Database<SchemaTypeRecord> | undefined;
+let db:  RIDBTypes.Database<RIDBTypes.SchemaTypeRecord> | undefined;
 
-export class RIDB<T extends SchemaTypeRecord> {
+export class RIDB<T extends RIDBTypes.SchemaTypeRecord> {
     constructor(
         private schemas: T
     ) {}
@@ -82,11 +75,13 @@ export class RIDB<T extends SchemaTypeRecord> {
     async load() {
         if (!internal) {
             internal = await import("../../pkg/ridb_rust");
+            const wasmInstance = internal.initSync(wasmBuffer)
+            await internal.default(wasmInstance)
         }
         return internal;
     }
 
-     async start(Storage?: typeof BaseStorage<SchemaType>) {
+     async start(Storage?: typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>) {
         const DefaultStorage= Storage ?? (await this.load()).InMemory;
         if (!db) {
             const {Database} = await this.load();
@@ -94,7 +89,7 @@ export class RIDB<T extends SchemaTypeRecord> {
                 this.schemas,
                 {
                     createStorage: async (schemas) => Object.keys(schemas)
-                        .reduce<InternalsRecord>((storages, name) => ({
+                        .reduce<RIDBTypes.InternalsRecord>((storages, name) => ({
                             ...storages,
                             [name]: new DefaultStorage(name, schemas[name])
                         }), {})
@@ -104,3 +99,14 @@ export class RIDB<T extends SchemaTypeRecord> {
         return db;
     }
 }
+
+export const SchemaFieldType = {
+    "string": 'string' as const,
+    "number":"number" as const,
+    "boolean":"boolean" as const,
+    "array":"array" as const,
+    "object":"object" as const,
+}
+
+
+

@@ -9,13 +9,15 @@ export default defineConfig({
     plugins:[
         wasm(),
         topLevelAwait()
-    ],
+    ],    
+
 
     build: {
         minify: 'terser',
         terserOptions: { format: { comments: 'all' } },
     },
     test: {
+        setupFiles: ['./tests/setup.ts'],
         reporters: ['verbose'],
         coverage: {
             provider: 'istanbul',
