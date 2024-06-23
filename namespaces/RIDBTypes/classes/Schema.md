@@ -8,7 +8,7 @@
 
 Represents a schema, including its definition and related methods.
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -28,13 +28,13 @@ The schema type.
 
 ### indexes?
 
-> `optional` `readonly` **indexes**: `string`[]
+> `readonly` `optional` **indexes**: `string`[]
 
 An optional array of indexes.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:536
+pkg/ridb\_rust.d.ts:104
 
 ***
 
@@ -44,9 +44,9 @@ pkg/ridb\_rust.d.ts:536
 
 The primary key of the schema.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:521
+pkg/ridb\_rust.d.ts:89
 
 ***
 
@@ -56,21 +56,21 @@ pkg/ridb\_rust.d.ts:521
 
 The properties defined in the schema.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:541
+pkg/ridb\_rust.d.ts:109
 
 ***
 
 ### required?
 
-> `optional` `readonly` **required**: `string`[]
+> `readonly` `optional` **required**: `string`[]
 
 An optional array of required fields.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:531
+pkg/ridb\_rust.d.ts:99
 
 ***
 
@@ -80,9 +80,9 @@ pkg/ridb\_rust.d.ts:531
 
 The schema definition.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:502
+pkg/ridb\_rust.d.ts:70
 
 ***
 
@@ -92,9 +92,9 @@ pkg/ridb\_rust.d.ts:502
 
 The type of the schema.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:526
+pkg/ridb\_rust.d.ts:94
 
 ***
 
@@ -104,9 +104,9 @@ pkg/ridb\_rust.d.ts:526
 
 The version of the schema.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:516
+pkg/ridb\_rust.d.ts:84
 
 ## Methods
 
@@ -122,9 +122,9 @@ Converts the schema to a JSON representation.
 
 The JSON representation of the schema.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:550
+pkg/ridb\_rust.d.ts:118
 
 ***
 
@@ -134,7 +134,7 @@ pkg/ridb\_rust.d.ts:550
 
 Creates a new `Schema` instance from the provided definition.
 
-#### Type parameters
+#### Type Parameters
 
 • **TS** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -152,6 +152,6 @@ The schema definition.
 
 The created `Schema` instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:511
+pkg/ridb\_rust.d.ts:79

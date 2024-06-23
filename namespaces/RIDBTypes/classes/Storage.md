@@ -8,7 +8,7 @@
 
 Represents a storage system containing a map of internal storages.
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`InternalsRecord`](../type-aliases/InternalsRecord.md)
 
@@ -34,9 +34,9 @@ The internals in the storage.
 
 This is a read-only property where the key is the name of the internal and the value is a `BaseStorage` instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:363
+pkg/ridb\_rust.d.ts:541
 
 ## Methods
 
@@ -46,7 +46,7 @@ pkg/ridb\_rust.d.ts:363
 
 Creates a new `Storage` instance with the provided internals.
 
-#### Type parameters
+#### Type Parameters
 
 • **TS** *extends* [`InternalsRecord`](../type-aliases/InternalsRecord.md) = [`InternalsRecord`](../type-aliases/InternalsRecord.md)
 
@@ -64,6 +64,6 @@ The internals to use for the storage.
 
 The created `Storage` instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:354
+pkg/ridb\_rust.d.ts:532

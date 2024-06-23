@@ -4,7 +4,7 @@
 
 [@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / SchemaType
 
-# Type alias: SchemaType
+# Type Alias: SchemaType
 
 > **SchemaType**: `object`
 
@@ -14,7 +14,7 @@ Represents the type definition for a schema.
 
 ### indexes?
 
-> `optional` `readonly` **indexes**: `string`[]
+> `readonly` `optional` **indexes**: `string`[]
 
 An optional array of indexes.
 
@@ -30,13 +30,13 @@ The primary key of the schema.
 
 The properties defined in the schema.
 
-#### Index signature
+#### Index Signature
 
  \[`name`: `string`\]: [`Property`](../classes/Property.md)
 
 ### required?
 
-> `optional` `readonly` **required**: `string`[]
+> `readonly` `optional` **required**: `string`[]
 
 An optional array of required fields.
 
@@ -52,6 +52,6 @@ The type of the schema.
 
 The version of the schema.
 
-## Source
+## Defined in
 
-pkg/ridb\_rust.d.ts:459
+pkg/ridb\_rust.d.ts:27

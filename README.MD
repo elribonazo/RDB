@@ -4,8 +4,6 @@
 
 # @elribonazo/ridb
 
-## Description
-
 ## What is RIDB
 RIDB is a package that can be used in browsers and nodejs in order to build databases.
 The project started after years of experience working with web projects in both browser and nodejs platforms, the project was born with some rules / objectives:
@@ -35,21 +33,6 @@ In order to run it, write the following:
 cd ts 
 npm i
 npm run test
-```
-
-```typescript
-import { createLevelDBStorage } from "@pluto-encrypted/leveldb";
-import { Database } from "@pluto-encrypted/database";
-//default password must be 32 bytes long
-const defaultPassword = new Uint8Array(32).fill(1);
-const database = db = await Database.createEncrypted({
-         name: `my-db`,
-         encryptionKey: defaultPassword,
-         storage: createLevelDBStorage({
-         dbName: "demo",
-         dbPath: "/tmp/demo"
-      })
-});
 ```
 
 ## Namespaces

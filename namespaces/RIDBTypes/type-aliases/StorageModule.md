@@ -4,7 +4,7 @@
 
 [@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / StorageModule
 
-# Type alias: StorageModule
+# Type Alias: StorageModule
 
 > **StorageModule**: `object`
 
@@ -18,6 +18,6 @@ Represents a storage module with a method for creating storage.
 
 Creates storage with the provided schema type records.
 
-## Source
+## Defined in
 
-pkg/ridb\_rust.d.ts:194
+pkg/ridb\_rust.d.ts:275

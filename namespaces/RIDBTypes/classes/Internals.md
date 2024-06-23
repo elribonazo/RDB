@@ -8,7 +8,7 @@
 
 Represents the internals of a storage system, including the base storage and schema.
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -32,9 +32,9 @@ The base storage instance.
 
 [`Internals`](Internals.md)\<`T`\>
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:386
+pkg/ridb\_rust.d.ts:315
 
 ## Properties
 
@@ -44,9 +44,9 @@ pkg/ridb\_rust.d.ts:386
 
 The base storage instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:379
+pkg/ridb\_rust.d.ts:309
 
 ***
 
@@ -56,6 +56,6 @@ pkg/ridb\_rust.d.ts:379
 
 The schema associated with the storage.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:391
+pkg/ridb\_rust.d.ts:319

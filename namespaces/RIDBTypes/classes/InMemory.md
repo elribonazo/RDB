@@ -12,7 +12,7 @@ Represents an in-memory storage system extending the base storage functionality.
 
 - [`BaseStorage`](BaseStorage.md)\<`T`\>
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -44,9 +44,9 @@ The schema type of the storage.
 
 [`BaseStorage`](BaseStorage.md).[`constructor`](BaseStorage.md#constructors)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:274
+pkg/ridb\_rust.d.ts:452
 
 ## Properties
 
@@ -60,9 +60,9 @@ The name of the storage.
 
 [`BaseStorage`](BaseStorage.md).[`name`](BaseStorage.md#name)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:279
+pkg/ridb\_rust.d.ts:457
 
 ***
 
@@ -76,9 +76,9 @@ The schema associated with the storage.
 
 [`BaseStorage`](BaseStorage.md).[`schema`](BaseStorage.md#schema)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:284
+pkg/ridb\_rust.d.ts:462
 
 ## Methods
 
@@ -98,9 +98,9 @@ A promise that resolves when the storage is closed.
 
 [`BaseStorage`](BaseStorage.md).[`close`](BaseStorage.md#close)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:291
+pkg/ridb\_rust.d.ts:469
 
 ***
 
@@ -120,9 +120,9 @@ A promise that resolves to the number of documents.
 
 [`BaseStorage`](BaseStorage.md).[`count`](BaseStorage.md#count)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:298
+pkg/ridb\_rust.d.ts:476
 
 ***
 
@@ -148,9 +148,9 @@ A promise that resolves to the found document or null.
 
 [`BaseStorage`](BaseStorage.md).[`findDocumentById`](BaseStorage.md#finddocumentbyid)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:306
+pkg/ridb\_rust.d.ts:484
 
 ***
 
@@ -168,9 +168,9 @@ Frees the resources used by the in-memory storage.
 
 [`BaseStorage`](BaseStorage.md).[`free`](BaseStorage.md#free)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:135
+pkg/ridb\_rust.d.ts:295
 
 ***
 
@@ -190,9 +190,9 @@ A promise that resolves when the query is complete.
 
 [`BaseStorage`](BaseStorage.md).[`query`](BaseStorage.md#query)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:313
+pkg/ridb\_rust.d.ts:491
 
 ***
 
@@ -218,9 +218,9 @@ A promise that resolves when the document is removed.
 
 [`BaseStorage`](BaseStorage.md).[`remove`](BaseStorage.md#remove)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:321
+pkg/ridb\_rust.d.ts:499
 
 ***
 
@@ -246,6 +246,6 @@ A promise that resolves to the document written.
 
 [`BaseStorage`](BaseStorage.md).[`write`](BaseStorage.md#write)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:329
+pkg/ridb\_rust.d.ts:507

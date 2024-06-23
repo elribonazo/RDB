@@ -22,101 +22,101 @@ Represents a property within a schema, including various constraints and nested 
 
 ### items?
 
-> `optional` `readonly` **items**: [`Property`](Property.md)[]
+> `readonly` `optional` **items**: [`Property`](Property.md)[]
 
 An optional array of nested properties for array-type properties.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:419
+pkg/ridb\_rust.d.ts:346
 
 ***
 
 ### maxItems?
 
-> `optional` `readonly` **maxItems**: `number`
+> `readonly` `optional` **maxItems**: `number`
 
 The maximum number of items for array-type properties, if applicable.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:424
+pkg/ridb\_rust.d.ts:351
 
 ***
 
 ### maxLength?
 
-> `optional` `readonly` **maxLength**: `number`
+> `readonly` `optional` **maxLength**: `number`
 
 The maximum length for string-type properties, if applicable.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:434
+pkg/ridb\_rust.d.ts:361
 
 ***
 
 ### minItems?
 
-> `optional` `readonly` **minItems**: `number`
+> `readonly` `optional` **minItems**: `number`
 
 The minimum number of items for array-type properties, if applicable.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:429
+pkg/ridb\_rust.d.ts:356
 
 ***
 
 ### minLength?
 
-> `optional` `readonly` **minLength**: `number`
+> `readonly` `optional` **minLength**: `number`
 
 The minimum length for string-type properties, if applicable.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:439
+pkg/ridb\_rust.d.ts:366
 
 ***
 
 ### primaryKey?
 
-> `optional` `readonly` **primaryKey**: `string`
+> `readonly` `optional` **primaryKey**: `string`
 
 The primary key of the property, if applicable.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:414
+pkg/ridb\_rust.d.ts:341
 
 ***
 
 ### properties?
 
-> `optional` `readonly` **properties**: `object`
+> `readonly` `optional` **properties**: `object`
 
 An optional map of nested properties for object-type properties.
 
-#### Index signature
+#### Index Signature
 
  \[`name`: `string`\]: [`Property`](Property.md)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:449
+pkg/ridb\_rust.d.ts:376
 
 ***
 
 ### required?
 
-> `optional` `readonly` **required**: `string`[]
+> `readonly` `optional` **required**: `string`[]
 
 An optional array of required fields for object-type properties.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:444
+pkg/ridb\_rust.d.ts:371
 
 ***
 
@@ -126,18 +126,18 @@ pkg/ridb\_rust.d.ts:444
 
 The type of the property.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:404
+pkg/ridb\_rust.d.ts:331
 
 ***
 
 ### version?
 
-> `optional` `readonly` **version**: `number`
+> `readonly` `optional` **version**: `number`
 
 The version of the property, if applicable.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:409
+pkg/ridb\_rust.d.ts:336

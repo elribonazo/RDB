@@ -8,7 +8,7 @@
 
 Represents a database containing collections of documents.
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaTypeRecord`](../type-aliases/SchemaTypeRecord.md)
 
@@ -34,9 +34,9 @@ The collections in the database.
 
 This is a read-only property where the key is the name of the collection and the value is a `Collection` instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:165
+pkg/ridb\_rust.d.ts:573
 
 ## Methods
 
@@ -46,7 +46,7 @@ pkg/ridb\_rust.d.ts:165
 
 Creates a new `Database` instance with the provided schemas and storage module.
 
-#### Type parameters
+#### Type Parameters
 
 • **TS** *extends* [`SchemaTypeRecord`](../type-aliases/SchemaTypeRecord.md)
 
@@ -68,6 +68,6 @@ The storage module to use.
 
 A promise that resolves to the created `Database` instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:155
+pkg/ridb\_rust.d.ts:563

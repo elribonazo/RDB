@@ -4,13 +4,11 @@
 
 [@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / CreateStorage
 
-# Type alias: CreateStorage()
+# Type Alias: CreateStorage()
 
 > **CreateStorage**: \<`T`\>(`records`) => `Promise`\<[`InternalsRecord`](InternalsRecord.md)\>
 
-Represents a function type for creating storage with the provided schema type records.
-
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaTypeRecord`](SchemaTypeRecord.md) = [`SchemaTypeRecord`](SchemaTypeRecord.md)
 
@@ -26,6 +24,8 @@ The schema type records.
 
 `Promise`\<[`InternalsRecord`](InternalsRecord.md)\>
 
-## Source
+A promise that resolves to the created internals record.
 
-pkg/ridb\_rust.d.ts:187
+## Defined in
+
+pkg/ridb\_rust.d.ts:268

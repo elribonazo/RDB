@@ -12,7 +12,7 @@ Represents the internal storage interface with abstract methods for various stor
 
 - [`BaseStorage`](BaseStorage.md)
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -42,9 +42,9 @@ Closes the storage.
 
 A promise that resolves when the storage is closed.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:254
+pkg/ridb\_rust.d.ts:432
 
 ***
 
@@ -60,9 +60,9 @@ Counts the number of documents in the storage.
 
 A promise that resolves to the number of documents.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:239
+pkg/ridb\_rust.d.ts:417
 
 ***
 
@@ -84,9 +84,9 @@ The ID of the document to find.
 
 A promise that resolves to the found document or null.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:232
+pkg/ridb\_rust.d.ts:410
 
 ***
 
@@ -102,9 +102,9 @@ Queries the storage.
 
 A promise that resolves when the query is complete.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:224
+pkg/ridb\_rust.d.ts:402
 
 ***
 
@@ -126,9 +126,9 @@ The ID of the document to remove.
 
 A promise that resolves when the document is removed.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:247
+pkg/ridb\_rust.d.ts:425
 
 ***
 
@@ -150,6 +150,6 @@ The operation to write.
 
 A promise that resolves to the document written.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:217
+pkg/ridb\_rust.d.ts:395

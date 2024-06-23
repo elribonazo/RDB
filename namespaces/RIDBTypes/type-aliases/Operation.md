@@ -4,13 +4,13 @@
 
 [@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / Operation
 
-# Type alias: Operation\<T\>
+# Type Alias: Operation\<T\>
 
 > **Operation**\<`T`\>: `object`
 
 Represents an operation to be performed on a collection.
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](SchemaType.md)
 
@@ -42,6 +42,6 @@ An array of indexes related to the operation.
 
 The type of operation to be performed (e.g., CREATE, UPDATE, DELETE).
 
-## Source
+## Defined in
 
-pkg/ridb\_rust.d.ts:560
+pkg/ridb\_rust.d.ts:128

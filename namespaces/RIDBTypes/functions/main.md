@@ -12,6 +12,6 @@
 
 `void`
 
-## Source
+## Defined in
 
 pkg/ridb\_rust.d.ts:5

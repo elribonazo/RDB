@@ -8,7 +8,7 @@
 
 Collection is a class that represents a collection of documents in a database.
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -36,9 +36,9 @@ The schema defining the structure of the documents in the collection.
 
 [`Collection`](Collection.md)\<`T`\>
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:80
+pkg/ridb\_rust.d.ts:208
 
 ## Properties
 
@@ -46,9 +46,9 @@ pkg/ridb\_rust.d.ts:80
 
 > **schema**: `T`
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:72
+pkg/ridb\_rust.d.ts:200
 
 ## Methods
 
@@ -70,9 +70,9 @@ The document to create.
 
 A promise that resolves to the created document.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:112
+pkg/ridb\_rust.d.ts:240
 
 ***
 
@@ -94,9 +94,9 @@ The ID of the document to delete.
 
 A promise that resolves when the deletion is complete.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:120
+pkg/ridb\_rust.d.ts:248
 
 ***
 
@@ -112,9 +112,9 @@ Finds all documents in the collection.
 
 A promise that resolves to an array of documents.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:87
+pkg/ridb\_rust.d.ts:215
 
 ***
 
@@ -136,9 +136,9 @@ The ID of the document to find.
 
 A promise that resolves to the found document.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:95
+pkg/ridb\_rust.d.ts:223
 
 ***
 
@@ -164,9 +164,9 @@ A partial document containing the fields to update.
 
 A promise that resolves when the update is complete.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:104
+pkg/ridb\_rust.d.ts:232
 
 ***
 
@@ -176,7 +176,7 @@ pkg/ridb\_rust.d.ts:104
 
 Creates a new Collection instance from a given schema.
 
-#### Type parameters
+#### Type Parameters
 
 • **TS** *extends* [`SchemaType`](../type-aliases/SchemaType.md) = [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -198,6 +198,6 @@ The schema defining the structure of the documents in the collection.
 
 A new Collection instance.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:68
+pkg/ridb\_rust.d.ts:196

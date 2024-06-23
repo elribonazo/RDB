@@ -6,7 +6,7 @@
 
 # Class: RIDB\<T\>
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)
 
@@ -24,110 +24,100 @@
 
 [`RIDB`](RIDB.md)\<`T`\>
 
-#### Source
+#### Defined in
 
-[ts/src/index.ts:65](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L65)
+[ts/src/index.ts:46](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L46)
 
 ## Properties
-
-### \_db
-
-> `private` **\_db**: `undefined` \| [`Database`](../namespaces/RIDBTypes/classes/Database.md)\<`T`\>
-
-#### Source
-
-[ts/src/index.ts:64](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L64)
-
-***
-
-### \_internal
-
-> `private` **\_internal**: `undefined` \| [`RIDBTypes`](../namespaces/RIDBTypes/README.md)
-
-#### Source
-
-[ts/src/index.ts:63](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L63)
-
-***
 
 ### schemas
 
 > `private` **schemas**: `T`
 
-#### Source
+#### Defined in
 
-[ts/src/index.ts:66](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L66)
+[ts/src/index.ts:45](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L45)
 
 ## Accessors
 
 ### collections
 
-> `get` **collections**(): \{ \[name in string \| number \| symbol\]: Collection\<Schema\<T\[name\]\>\> \}
+> `get` **collections**(): `object`
 
 #### Returns
 
-\{ \[name in string \| number \| symbol\]: Collection\<Schema\<T\[name\]\>\> \}
+`object`
 
-#### Source
+#### Defined in
 
-[ts/src/index.ts:83](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L83)
+[ts/src/index.ts:57](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L57)
 
 ***
 
 ### db
 
-> `get` **db**(): [`Database`](../namespaces/RIDBTypes/classes/Database.md)\<`T`\>
+> `get` `private` **db**(): [`Database`](../namespaces/RIDBTypes/classes/Database.md)\<[`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)\>
 
 #### Returns
 
-[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<`T`\>
+[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<[`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)\>
 
-#### Source
+#### Defined in
 
-[ts/src/index.ts:69](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L69)
-
-***
-
-### internal
-
-> `get` **internal**(): [`RIDBTypes`](../namespaces/RIDBTypes/README.md)
-
-#### Returns
-
-[`RIDBTypes`](../namespaces/RIDBTypes/README.md)
-
-#### Source
-
-[ts/src/index.ts:76](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L76)
+[ts/src/index.ts:50](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L50)
 
 ## Methods
 
+### createStorage()
+
+> `private` **createStorage**\<`J`\>(`schemas`, `storageConstructor`?): `Promise`\<[`InternalsRecord`](../namespaces/RIDBTypes/type-aliases/InternalsRecord.md)\>
+
+#### Type Parameters
+
+• **J** *extends* [`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)
+
+#### Parameters
+
+• **schemas**: `J`
+
+• **storageConstructor?**: *typeof* [`BaseStorage`](../namespaces/RIDBTypes/classes/BaseStorage.md)
+
+#### Returns
+
+`Promise`\<[`InternalsRecord`](../namespaces/RIDBTypes/type-aliases/InternalsRecord.md)\>
+
+#### Defined in
+
+[ts/src/index.ts:78](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L78)
+
+***
+
 ### load()
 
-> **load**(): `Promise`\<[`RIDBTypes`](../namespaces/RIDBTypes/README.md)\>
+> `private` **load**(): `Promise`\<[`RIDBTypes`](../namespaces/RIDBTypes/README.md)\>
 
 #### Returns
 
 `Promise`\<[`RIDBTypes`](../namespaces/RIDBTypes/README.md)\>
 
-#### Source
+#### Defined in
 
-[ts/src/index.ts:87](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L87)
+[ts/src/index.ts:61](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L61)
 
 ***
 
 ### start()
 
-> **start**(`Storage`?): `Promise`\<[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<`T`\>\>
+> **start**(`storageType`?): `Promise`\<[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<[`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)\>\>
 
 #### Parameters
 
-• **Storage?**: *typeof* [`BaseStorage`](../namespaces/RIDBTypes/classes/BaseStorage.md)
+• **storageType?**: *typeof* [`BaseStorage`](../namespaces/RIDBTypes/classes/BaseStorage.md)
 
 #### Returns
 
-`Promise`\<[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<`T`\>\>
+`Promise`\<[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<[`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)\>\>
 
-#### Source
+#### Defined in
 
-[ts/src/index.ts:94](https://github.com/elribonazo/RIDB/blob/3d5d079eabaff0493648f6889b99823c5605ae57/ts/src/index.ts#L94)
+[ts/src/index.ts:70](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L70)

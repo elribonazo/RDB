@@ -16,7 +16,7 @@ Represents the base storage implementation, extending `StorageInternal`.
 
 - [`InMemory`](InMemory.md)
 
-## Type parameters
+## Type Parameters
 
 • **T** *extends* [`SchemaType`](../type-aliases/SchemaType.md)
 
@@ -48,9 +48,9 @@ The schema type of the storage.
 
 [`StorageInternal`](StorageInternal.md).[`constructor`](StorageInternal.md#constructors)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:274
+pkg/ridb\_rust.d.ts:452
 
 ## Properties
 
@@ -60,9 +60,9 @@ pkg/ridb\_rust.d.ts:274
 
 The name of the storage.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:279
+pkg/ridb\_rust.d.ts:457
 
 ***
 
@@ -72,9 +72,9 @@ pkg/ridb\_rust.d.ts:279
 
 The schema associated with the storage.
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:284
+pkg/ridb\_rust.d.ts:462
 
 ## Methods
 
@@ -94,9 +94,9 @@ A promise that resolves when the storage is closed.
 
 [`StorageInternal`](StorageInternal.md).[`close`](StorageInternal.md#close)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:291
+pkg/ridb\_rust.d.ts:469
 
 ***
 
@@ -116,9 +116,9 @@ A promise that resolves to the number of documents.
 
 [`StorageInternal`](StorageInternal.md).[`count`](StorageInternal.md#count)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:298
+pkg/ridb\_rust.d.ts:476
 
 ***
 
@@ -144,9 +144,9 @@ A promise that resolves to the found document or null.
 
 [`StorageInternal`](StorageInternal.md).[`findDocumentById`](StorageInternal.md#finddocumentbyid)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:306
+pkg/ridb\_rust.d.ts:484
 
 ***
 
@@ -160,9 +160,9 @@ Frees the resources used by the base storage.
 
 `void`
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:266
+pkg/ridb\_rust.d.ts:444
 
 ***
 
@@ -182,9 +182,9 @@ A promise that resolves when the query is complete.
 
 [`StorageInternal`](StorageInternal.md).[`query`](StorageInternal.md#query)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:313
+pkg/ridb\_rust.d.ts:491
 
 ***
 
@@ -210,9 +210,9 @@ A promise that resolves when the document is removed.
 
 [`StorageInternal`](StorageInternal.md).[`remove`](StorageInternal.md#remove)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:321
+pkg/ridb\_rust.d.ts:499
 
 ***
 
@@ -238,6 +238,6 @@ A promise that resolves to the document written.
 
 [`StorageInternal`](StorageInternal.md).[`write`](StorageInternal.md#write)
 
-#### Source
+#### Defined in
 
-pkg/ridb\_rust.d.ts:329
+pkg/ridb\_rust.d.ts:507

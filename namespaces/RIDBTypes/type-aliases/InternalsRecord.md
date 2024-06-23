@@ -4,16 +4,16 @@
 
 [@elribonazo/ridb](../../../README.md) / [RIDBTypes](../README.md) / InternalsRecord
 
-# Type alias: InternalsRecord
+# Type Alias: InternalsRecord
 
 > **InternalsRecord**: `object`
 
 Represents a record of internals, where each key is a string and the value is a `BaseStorage` instance.
 
-## Index signature
+## Index Signature
 
  \[`name`: `string`\]: [`BaseStorage`](../classes/BaseStorage.md)\<[`SchemaType`](SchemaType.md)\>
 
-## Source
+## Defined in
 
-pkg/ridb\_rust.d.ts:337
+pkg/ridb\_rust.d.ts:515
