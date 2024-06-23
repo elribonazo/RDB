@@ -1,3 +1,3 @@
-import {runTests, TestPlatform} from './shared';
+import Shared from './shared';
 
-runTests([TestPlatform.BROWSER])
+Shared.runTests([Shared.TestPlatform.BROWSER])

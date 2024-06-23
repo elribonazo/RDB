@@ -1,3 +1,3 @@
-import {runTests, TestPlatform} from './shared';
+import Shared from './shared';
 
-runTests([TestPlatform.NODE])
+Shared.runTests([Shared.TestPlatform.NODE])

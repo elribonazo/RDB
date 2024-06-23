@@ -6,12 +6,6 @@ import topLevelAwait from "vite-plugin-top-level-await";
 const isCI = process.env.CI === "true";
 
 export default defineConfig({
-    plugins:[
-        wasm(),
-        topLevelAwait()
-    ],    
-
-
     build: {
         minify: 'terser',
         terserOptions: { format: { comments: 'all' } },
@@ -29,8 +23,7 @@ export default defineConfig({
                 statements: 100
             },
             include: [
-                'src/**/*',
-                "pkg/**"
+                'build/esm/**/*'
             ],
         },
 

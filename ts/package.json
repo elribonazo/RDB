@@ -1,6 +1,6 @@
 {
   "name": "@elribonazo/ridb",
-  "version": "0.0.0-rc18",
+  "version": "0.0.0-rc19",
   "description": "RIDB ES Module",
   "main": "./build/cjs/index.cjs",
   "module": "./build/esm/index.mjs",
@@ -28,12 +28,9 @@
     "docs": "typedoc --cleanOutputDir false",
     "runtest": "npm run build && npm run test:node",
     "build": "sh build.sh",
-    "test": "npm run test:node && npm run test:browser",
-    "test:node": "vitest --environment node --run tests/node.test.ts",
-    "test:browser": "vitest --environment jsdom --browser --browser.name=chrome --run tests/browser.test.ts",
-    "test:coverage": "npx vitest tests/coverage.test.ts",
-    "test:serve": "npm run test:coverage -- --ui",
-    "coverage": "vitest run --coverage tests/coverage.test.ts",
+    "test": "npm run build && npm run test:node && npm run test:browser",
+    "test:node": "sh test.sh -e node",
+    "test:browser": "sh test.sh -e browser",
     "prepublishOnly": "cp ../README.MD ./README.MD && npm run build",
     "postpublish": "rm ./README.MD"
   },

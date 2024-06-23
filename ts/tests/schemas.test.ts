@@ -1,8 +1,9 @@
 import { describe, it, expect } from 'vitest';
+import type { RIDBTypes } from "../build/esm/index";
+
 import {
-    RIDB,
     SchemaFieldType,
-    RIDBTypes
+    RIDB,
 } from "../build/esm/index";
 
 
@@ -23,10 +24,12 @@ const storages: (typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>|undefined)[]
 ]
 
 export default (platform: string) =>
-describe(`Testing ${platform}`, () => {
+
+
+describe(`[${platform}] Testing`, () => {
 
     storages.forEach(storage => {
-        describe(`Test ${storage ? 'Typescript' : 'Wasm'} Storage`, () => {
+        describe(`[${platform}][${storage ? 'Typescript' : 'Wasm'}] Testing Storage`, () => {
 
             it("Should be able to create a default database with a valid schema", async () => {
                 const db =  new RIDB(
