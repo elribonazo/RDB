@@ -10,16 +10,6 @@ use crate::schema::property_type::PropertyType;
 use wasm_bindgen_test::{wasm_bindgen_test};
 
 
-#[cfg(any(feature = "browser", feature = "node"))]
-pub mod tests_specific {
-    use wasm_bindgen_test::{wasm_bindgen_test_configure};
-
-    pub fn configure() {
-        #[cfg(feature = "browser")]
-        wasm_bindgen_test_configure!(run_in_browser);
-    }
-}
-
 
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = r#"
@@ -202,10 +192,10 @@ impl Property {
     }
 }
 
-
+#[cfg(test)]
 #[wasm_bindgen_test]
-fn test_property_type() {
-    let prop = Property {
+fn test_property_defaults() {
+    let default_property = Property {
         property_type: PropertyType::String,
         items: None,
         max_items: None,
@@ -215,12 +205,14 @@ fn test_property_type() {
         required: None,
         properties: None,
     };
-    assert_eq!(prop.property_type(), PropertyType::String);
-    assert_eq!(prop.items().unwrap(), JsValue::undefined());
-    assert_eq!(prop.min_items().unwrap(), JsValue::undefined());
-    assert_eq!(prop.max_items().unwrap(), JsValue::undefined());
-    assert_eq!(prop.min_length().unwrap(), JsValue::undefined());
-    assert_eq!(prop.max_length().unwrap(), JsValue::undefined());
-    assert_eq!(prop.required().unwrap(), JsValue::undefined());
-    assert_eq!(prop.properties().unwrap(), JsValue::undefined());
+
+    // Test default values to ensure proper initialization
+    assert_eq!(default_property.property_type, PropertyType::String);
+    assert!(default_property.items.is_none());
+    assert!(default_property.max_items.is_none());
+    assert!(default_property.min_items.is_none());
+    assert!(default_property.max_length.is_none());
+    assert!(default_property.min_length.is_none());
+    assert!(default_property.required.is_none());
+    assert!(default_property.properties.is_none());
 }

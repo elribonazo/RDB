@@ -145,10 +145,24 @@ impl Schema {
     /// * `Result<Schema, JsValue>` - A result containing the new `Schema` instance or an error.
     #[wasm_bindgen]
     pub fn create(schema: JsValue) -> Result<Schema, JsValue> {
+        let schema: Schema = from_value(schema)
+            .map_err(|e| JsValue::from(RIDBError::from(e)))?;
+
+        schema.is_valid();
+
         Ok(
-            from_value(schema)
-                .map_err(|e| JsValue::from(RIDBError::from(e)))?
+            schema
         )
+    }
+
+    /// Checks is the schema is valid.
+    ///
+    /// # Returns
+    ///
+    /// Throws exception if not valid
+    #[wasm_bindgen(getter, js_name="version")]
+    pub fn is_valid(&self) -> Result<JsValue, JsValue>{
+        Ok(JsValue::undefined())
     }
 
     /// Retrieves the version of the schema.

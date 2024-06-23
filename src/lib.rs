@@ -9,15 +9,12 @@ mod storage;
 mod database;
 mod query;
 
-#[cfg(any(feature = "browser", feature = "node"))]
-mod tests_specific {
-    use wasm_bindgen_test::{wasm_bindgen_test_configure};
+#[cfg(any(feature = "node"))]
+use wasm_bindgen_test::{wasm_bindgen_test_configure};
 
-    pub fn configure() {
-        #[cfg(feature = "browser")]
-        wasm_bindgen_test_configure!(run_in_browser);
-    }
-}
+#[cfg(feature = "browser")]
+wasm_bindgen_test_configure!(run_in_browser);
+
 
 #[wasm_bindgen(start)]
 pub fn main_js() -> Result<(), JsValue> {
