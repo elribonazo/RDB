@@ -26,17 +26,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:126](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L126)
-
-## Properties
-
-### schemas
-
-> `private` **schemas**: `T`
-
-#### Defined in
-
-[ts/src/index.ts:125](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L125)
+[ts/src/index.ts:126](https://github.com/elribonazo/RIDB/blob/16a776a02482a53dea4bcee65ba3886992a6fca5/ts/src/index.ts#L126)
 
 ## Accessors
 
@@ -50,61 +40,9 @@
 
 #### Defined in
 
-[ts/src/index.ts:137](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L137)
-
-***
-
-### db
-
-> `get` `private` **db**(): [`Database`](../namespaces/RIDBTypes/classes/Database.md)\<[`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)\>
-
-#### Returns
-
-[`Database`](../namespaces/RIDBTypes/classes/Database.md)\<[`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)\>
-
-#### Defined in
-
-[ts/src/index.ts:130](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L130)
+[ts/src/index.ts:137](https://github.com/elribonazo/RIDB/blob/16a776a02482a53dea4bcee65ba3886992a6fca5/ts/src/index.ts#L137)
 
 ## Methods
-
-### createStorage()
-
-> `private` **createStorage**\<`J`\>(`schemas`, `storageConstructor`?): `Promise`\<[`InternalsRecord`](../namespaces/RIDBTypes/type-aliases/InternalsRecord.md)\>
-
-#### Type Parameters
-
-• **J** *extends* [`SchemaTypeRecord`](../namespaces/RIDBTypes/type-aliases/SchemaTypeRecord.md)
-
-#### Parameters
-
-• **schemas**: `J`
-
-• **storageConstructor?**: *typeof* [`BaseStorage`](../namespaces/RIDBTypes/classes/BaseStorage.md)
-
-#### Returns
-
-`Promise`\<[`InternalsRecord`](../namespaces/RIDBTypes/type-aliases/InternalsRecord.md)\>
-
-#### Defined in
-
-[ts/src/index.ts:158](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L158)
-
-***
-
-### load()
-
-> `private` **load**(): `Promise`\<[`RIDBTypes`](../namespaces/RIDBTypes/README.md)\>
-
-#### Returns
-
-`Promise`\<[`RIDBTypes`](../namespaces/RIDBTypes/README.md)\>
-
-#### Defined in
-
-[ts/src/index.ts:141](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L141)
-
-***
 
 ### start()
 
@@ -120,4 +58,4 @@
 
 #### Defined in
 
-[ts/src/index.ts:150](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L150)
+[ts/src/index.ts:150](https://github.com/elribonazo/RIDB/blob/16a776a02482a53dea4bcee65ba3886992a6fca5/ts/src/index.ts#L150)

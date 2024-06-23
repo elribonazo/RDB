@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
+
 is_mac() {
   [[ "$OSTYPE" == "darwin"* ]]
 }
 
-
 echo "Building the rust library"
-
 cd .. 
 
 wasm-pack build --target=web
@@ -15,8 +14,7 @@ IMPORTFILE=./pkg/ridb_rust.js
 
 if is_mac; then
   sed -i '' 's/"module": "ridb_rust.js",/"main": "ridb_rust.js",/' $PACKAGEJSON
-      sed -i '' "/if (typeof input === 'undefined') {/,/}/d" $IMPORTFILE
-
+  sed -i '' "/if (typeof input === 'undefined') {/,/}/d" $IMPORTFILE
 else
   sed -i  's/"module": "ridb_rust.js",/"main": "ridb_rust.js",/' $PACKAGEJSON
   sed -i "/if (typeof input === 'undefined') {/,/}/d" $IMPORTFILE

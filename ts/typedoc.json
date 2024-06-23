@@ -15,10 +15,10 @@
     "useTsLinkResolution": true,
     "hideGenerator": true,
     "entryPointStrategy": "expand",
-    "excludePrivate": false,
-    "excludeReferences": false,
-    "excludeProtected": false,
-    "excludeInternal": false,
+    "excludePrivate": true,
+    "excludeReferences": true,
+    "excludeProtected": true,
+    "excludeInternal": true,
     "excludeNotDocumented": true,
     "excludeNotDocumentedKinds": [
         "Variable"
