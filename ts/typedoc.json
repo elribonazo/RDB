@@ -5,8 +5,7 @@
     "out": "..",
     "plugin": [
         "typedoc-plugin-markdown",
-        "typedoc-plugin-rename-defaults",
-        "typedoc-plugin-external-module-map"
+        "typedoc-plugin-rename-defaults"
     ],
     "navigationLinks": {
         "Docs": "https://github.com/elribonazo/RIDB.git",
