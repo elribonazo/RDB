@@ -13,6 +13,15 @@ The project started after years of experience working with web projects in both 
 4. Secure encryption
 5. Work seamlessly in browsers or nodejs applications.
 
+## Supported features for InMemory Storage
+The inMemory storage is used by default and is currently supporting the following features:
+1. Create (OK)
+2. Fetch (WIP)
+3. FetchOne (WIP)
+4. Update (WIP)
+5. Remove (WIP)
+6. Clean (WIP)
+
 ## Install
 
 npm: 

@@ -24,6 +24,9 @@ wasm-bindgen-test = {version="^0.3.42"}
 [package.metadata.wasm-bindgen]
 typescript = true
 
+[package.metadata.wasm-pack.profile.dev]
+wasm-opt = false
+
 [features]
 default = ["console_error_panic_hook"]
 browser = []

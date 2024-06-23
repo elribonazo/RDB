@@ -1,6 +1,6 @@
 {
   "name": "@elribonazo/ridb",
-  "version": "0.0.0-rc24",
+  "version": "0.0.0-rc25n",
   "description": "RIDB ES Module",
   "main": "./build/cjs/index.cjs",
   "module": "./build/esm/index.mjs",

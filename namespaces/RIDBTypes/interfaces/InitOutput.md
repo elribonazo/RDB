@@ -22,7 +22,7 @@
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:644
+pkg/ridb\_rust.d.ts:678
 
 ***
 
@@ -40,7 +40,7 @@ pkg/ridb\_rust.d.ts:644
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:603
+pkg/ridb\_rust.d.ts:696
 
 ***
 
@@ -58,7 +58,7 @@ pkg/ridb\_rust.d.ts:603
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:649
+pkg/ridb\_rust.d.ts:683
 
 ***
 
@@ -76,7 +76,7 @@ pkg/ridb\_rust.d.ts:649
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:611
+pkg/ridb\_rust.d.ts:705
 
 ***
 
@@ -94,25 +94,7 @@ pkg/ridb\_rust.d.ts:611
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:624
-
-***
-
-### \_\_wbg\_loader\_free()
-
-> `readonly` **\_\_wbg\_loader\_free**: (`a`) => `void`
-
-#### Parameters
-
-• **a**: `number`
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-pkg/ridb\_rust.d.ts:623
+pkg/ridb\_rust.d.ts:666
 
 ***
 
@@ -130,7 +112,7 @@ pkg/ridb\_rust.d.ts:623
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:598
+pkg/ridb\_rust.d.ts:661
 
 ***
 
@@ -148,7 +130,7 @@ pkg/ridb\_rust.d.ts:598
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:635
+pkg/ridb\_rust.d.ts:687
 
 ***
 
@@ -166,7 +148,7 @@ pkg/ridb\_rust.d.ts:635
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:590
+pkg/ridb\_rust.d.ts:652
 
 ***
 
@@ -184,7 +166,115 @@ pkg/ridb\_rust.d.ts:590
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:652
+pkg/ridb\_rust.d.ts:686
+
+***
+
+### \_\_wbg\_wasmbindgentestcontext\_free()
+
+> `readonly` **\_\_wbg\_wasmbindgentestcontext\_free**: (`a`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:716
+
+***
+
+### \_\_wbgtest\_console\_debug()
+
+> `readonly` **\_\_wbgtest\_console\_debug**: (`a`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:721
+
+***
+
+### \_\_wbgtest\_console\_error()
+
+> `readonly` **\_\_wbgtest\_console\_error**: (`a`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:724
+
+***
+
+### \_\_wbgtest\_console\_info()
+
+> `readonly` **\_\_wbgtest\_console\_info**: (`a`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:722
+
+***
+
+### \_\_wbgtest\_console\_log()
+
+> `readonly` **\_\_wbgtest\_console\_log**: (`a`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:720
+
+***
+
+### \_\_wbgtest\_console\_warn()
+
+> `readonly` **\_\_wbgtest\_console\_warn**: (`a`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:723
 
 ***
 
@@ -202,7 +292,7 @@ pkg/ridb\_rust.d.ts:652
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:657
+pkg/ridb\_rust.d.ts:729
 
 ***
 
@@ -220,7 +310,7 @@ pkg/ridb\_rust.d.ts:657
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:659
+pkg/ridb\_rust.d.ts:731
 
 ***
 
@@ -230,7 +320,7 @@ pkg/ridb\_rust.d.ts:659
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:655
+pkg/ridb\_rust.d.ts:727
 
 ***
 
@@ -252,7 +342,7 @@ pkg/ridb\_rust.d.ts:655
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:658
+pkg/ridb\_rust.d.ts:730
 
 ***
 
@@ -272,7 +362,7 @@ pkg/ridb\_rust.d.ts:658
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:653
+pkg/ridb\_rust.d.ts:725
 
 ***
 
@@ -296,7 +386,7 @@ pkg/ridb\_rust.d.ts:653
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:654
+pkg/ridb\_rust.d.ts:726
 
 ***
 
@@ -310,13 +400,13 @@ pkg/ridb\_rust.d.ts:654
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:661
+pkg/ridb\_rust.d.ts:734
 
 ***
 
-### \_dyn\_core\_\_ops\_\_function\_\_FnMut\_\_A\_\_\_\_Output\_\_\_R\_as\_wasm\_bindgen\_\_closure\_\_WasmClosure\_\_\_describe\_\_invoke\_\_h6a4f443f8a11a26f()
+### \_dyn\_core\_\_ops\_\_function\_\_FnMut\_\_A\_\_\_\_Output\_\_\_R\_as\_wasm\_bindgen\_\_closure\_\_WasmClosure\_\_\_describe\_\_invoke\_\_h7fc36412d5c45561()
 
-> `readonly` **\_dyn\_core\_\_ops\_\_function\_\_FnMut\_\_A\_\_\_\_Output\_\_\_R\_as\_wasm\_bindgen\_\_closure\_\_WasmClosure\_\_\_describe\_\_invoke\_\_h6a4f443f8a11a26f**: (`a`, `b`, `c`) => `void`
+> `readonly` **\_dyn\_core\_\_ops\_\_function\_\_FnMut\_\_A\_\_\_\_Output\_\_\_R\_as\_wasm\_bindgen\_\_closure\_\_WasmClosure\_\_\_describe\_\_invoke\_\_h7fc36412d5c45561**: (`a`, `b`, `c`) => `void`
 
 #### Parameters
 
@@ -332,7 +422,7 @@ pkg/ridb\_rust.d.ts:661
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:656
+pkg/ridb\_rust.d.ts:728
 
 ***
 
@@ -352,7 +442,7 @@ pkg/ridb\_rust.d.ts:656
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:647
+pkg/ridb\_rust.d.ts:681
 
 ***
 
@@ -376,7 +466,7 @@ pkg/ridb\_rust.d.ts:647
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:645
+pkg/ridb\_rust.d.ts:679
 
 ***
 
@@ -394,7 +484,7 @@ pkg/ridb\_rust.d.ts:645
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:646
+pkg/ridb\_rust.d.ts:680
 
 ***
 
@@ -414,7 +504,7 @@ pkg/ridb\_rust.d.ts:646
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:609
+pkg/ridb\_rust.d.ts:703
 
 ***
 
@@ -432,7 +522,7 @@ pkg/ridb\_rust.d.ts:609
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:610
+pkg/ridb\_rust.d.ts:704
 
 ***
 
@@ -450,7 +540,7 @@ pkg/ridb\_rust.d.ts:610
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:606
+pkg/ridb\_rust.d.ts:700
 
 ***
 
@@ -472,7 +562,7 @@ pkg/ridb\_rust.d.ts:606
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:607
+pkg/ridb\_rust.d.ts:701
 
 ***
 
@@ -494,7 +584,7 @@ pkg/ridb\_rust.d.ts:607
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:604
+pkg/ridb\_rust.d.ts:697
 
 ***
 
@@ -512,7 +602,27 @@ pkg/ridb\_rust.d.ts:604
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:605
+pkg/ridb\_rust.d.ts:699
+
+***
+
+### collection\_name()
+
+> `readonly` **collection\_name**: (`a`, `b`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+• **b**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:698
 
 ***
 
@@ -532,7 +642,7 @@ pkg/ridb\_rust.d.ts:605
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:608
+pkg/ridb\_rust.d.ts:702
 
 ***
 
@@ -552,7 +662,7 @@ pkg/ridb\_rust.d.ts:608
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:650
+pkg/ridb\_rust.d.ts:684
 
 ***
 
@@ -572,7 +682,7 @@ pkg/ridb\_rust.d.ts:650
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:651
+pkg/ridb\_rust.d.ts:685
 
 ***
 
@@ -592,7 +702,7 @@ pkg/ridb\_rust.d.ts:651
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:613
+pkg/ridb\_rust.d.ts:707
 
 ***
 
@@ -610,7 +720,7 @@ pkg/ridb\_rust.d.ts:613
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:621
+pkg/ridb\_rust.d.ts:715
 
 ***
 
@@ -628,7 +738,7 @@ pkg/ridb\_rust.d.ts:621
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:619
+pkg/ridb\_rust.d.ts:713
 
 ***
 
@@ -646,7 +756,7 @@ pkg/ridb\_rust.d.ts:619
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:618
+pkg/ridb\_rust.d.ts:712
 
 ***
 
@@ -666,7 +776,7 @@ pkg/ridb\_rust.d.ts:618
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:615
+pkg/ridb\_rust.d.ts:709
 
 ***
 
@@ -688,7 +798,7 @@ pkg/ridb\_rust.d.ts:615
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:612
+pkg/ridb\_rust.d.ts:706
 
 ***
 
@@ -706,7 +816,7 @@ pkg/ridb\_rust.d.ts:612
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:617
+pkg/ridb\_rust.d.ts:711
 
 ***
 
@@ -724,7 +834,7 @@ pkg/ridb\_rust.d.ts:617
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:620
+pkg/ridb\_rust.d.ts:714
 
 ***
 
@@ -742,7 +852,7 @@ pkg/ridb\_rust.d.ts:620
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:614
+pkg/ridb\_rust.d.ts:708
 
 ***
 
@@ -762,7 +872,7 @@ pkg/ridb\_rust.d.ts:614
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:616
+pkg/ridb\_rust.d.ts:710
 
 ***
 
@@ -776,7 +886,7 @@ pkg/ridb\_rust.d.ts:616
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:634
+pkg/ridb\_rust.d.ts:676
 
 ***
 
@@ -790,7 +900,7 @@ pkg/ridb\_rust.d.ts:634
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:632
+pkg/ridb\_rust.d.ts:674
 
 ***
 
@@ -804,7 +914,7 @@ pkg/ridb\_rust.d.ts:632
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:631
+pkg/ridb\_rust.d.ts:673
 
 ***
 
@@ -822,7 +932,7 @@ pkg/ridb\_rust.d.ts:631
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:626
+pkg/ridb\_rust.d.ts:668
 
 ***
 
@@ -844,7 +954,7 @@ pkg/ridb\_rust.d.ts:626
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:628
+pkg/ridb\_rust.d.ts:670
 
 ***
 
@@ -862,7 +972,7 @@ pkg/ridb\_rust.d.ts:628
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:625
+pkg/ridb\_rust.d.ts:667
 
 ***
 
@@ -876,7 +986,7 @@ pkg/ridb\_rust.d.ts:625
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:630
+pkg/ridb\_rust.d.ts:672
 
 ***
 
@@ -890,7 +1000,7 @@ pkg/ridb\_rust.d.ts:630
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:633
+pkg/ridb\_rust.d.ts:675
 
 ***
 
@@ -912,7 +1022,7 @@ pkg/ridb\_rust.d.ts:633
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:627
+pkg/ridb\_rust.d.ts:669
 
 ***
 
@@ -932,13 +1042,13 @@ pkg/ridb\_rust.d.ts:627
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:629
+pkg/ridb\_rust.d.ts:671
 
 ***
 
-### main()
+### main\_js()
 
-> `readonly` **main**: () => `void`
+> `readonly` **main\_js**: () => `void`
 
 #### Returns
 
@@ -946,7 +1056,7 @@ pkg/ridb\_rust.d.ts:629
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:622
+pkg/ridb\_rust.d.ts:677
 
 ***
 
@@ -956,7 +1066,7 @@ pkg/ridb\_rust.d.ts:622
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:589
+pkg/ridb\_rust.d.ts:651
 
 ***
 
@@ -976,7 +1086,7 @@ pkg/ridb\_rust.d.ts:589
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:599
+pkg/ridb\_rust.d.ts:662
 
 ***
 
@@ -994,7 +1104,7 @@ pkg/ridb\_rust.d.ts:599
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:601
+pkg/ridb\_rust.d.ts:664
 
 ***
 
@@ -1014,7 +1124,7 @@ pkg/ridb\_rust.d.ts:601
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:602
+pkg/ridb\_rust.d.ts:665
 
 ***
 
@@ -1032,7 +1142,7 @@ pkg/ridb\_rust.d.ts:602
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:600
+pkg/ridb\_rust.d.ts:663
 
 ***
 
@@ -1052,7 +1162,7 @@ pkg/ridb\_rust.d.ts:600
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:637
+pkg/ridb\_rust.d.ts:689
 
 ***
 
@@ -1072,7 +1182,7 @@ pkg/ridb\_rust.d.ts:637
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:638
+pkg/ridb\_rust.d.ts:690
 
 ***
 
@@ -1092,7 +1202,7 @@ pkg/ridb\_rust.d.ts:638
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:640
+pkg/ridb\_rust.d.ts:692
 
 ***
 
@@ -1112,7 +1222,7 @@ pkg/ridb\_rust.d.ts:640
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:639
+pkg/ridb\_rust.d.ts:691
 
 ***
 
@@ -1132,7 +1242,7 @@ pkg/ridb\_rust.d.ts:639
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:641
+pkg/ridb\_rust.d.ts:693
 
 ***
 
@@ -1152,7 +1262,7 @@ pkg/ridb\_rust.d.ts:641
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:643
+pkg/ridb\_rust.d.ts:695
 
 ***
 
@@ -1172,7 +1282,7 @@ pkg/ridb\_rust.d.ts:643
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:642
+pkg/ridb\_rust.d.ts:694
 
 ***
 
@@ -1190,7 +1300,7 @@ pkg/ridb\_rust.d.ts:642
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:636
+pkg/ridb\_rust.d.ts:688
 
 ***
 
@@ -1210,7 +1320,7 @@ pkg/ridb\_rust.d.ts:636
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:591
+pkg/ridb\_rust.d.ts:653
 
 ***
 
@@ -1230,7 +1340,27 @@ pkg/ridb\_rust.d.ts:591
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:596
+pkg/ridb\_rust.d.ts:659
+
+***
+
+### schema\_isValid()
+
+> `readonly` **schema\_isValid**: (`a`, `b`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+• **b**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:654
 
 ***
 
@@ -1250,7 +1380,7 @@ pkg/ridb\_rust.d.ts:596
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:593
+pkg/ridb\_rust.d.ts:656
 
 ***
 
@@ -1270,7 +1400,7 @@ pkg/ridb\_rust.d.ts:593
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:597
+pkg/ridb\_rust.d.ts:660
 
 ***
 
@@ -1290,7 +1420,7 @@ pkg/ridb\_rust.d.ts:597
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:595
+pkg/ridb\_rust.d.ts:658
 
 ***
 
@@ -1310,7 +1440,7 @@ pkg/ridb\_rust.d.ts:595
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:594
+pkg/ridb\_rust.d.ts:657
 
 ***
 
@@ -1328,7 +1458,7 @@ pkg/ridb\_rust.d.ts:594
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:592
+pkg/ridb\_rust.d.ts:655
 
 ***
 
@@ -1348,7 +1478,7 @@ pkg/ridb\_rust.d.ts:592
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:648
+pkg/ridb\_rust.d.ts:682
 
 ***
 
@@ -1372,4 +1502,88 @@ pkg/ridb\_rust.d.ts:648
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:660
+pkg/ridb\_rust.d.ts:733
+
+***
+
+### wasm\_bindgen\_\_convert\_\_closures\_\_invoke3\_mut\_\_h189e24f487c30159()
+
+> `readonly` **wasm\_bindgen\_\_convert\_\_closures\_\_invoke3\_mut\_\_h189e24f487c30159**: (`a`, `b`, `c`, `d`, `e`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+• **b**: `number`
+
+• **c**: `number`
+
+• **d**: `number`
+
+• **e**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:732
+
+***
+
+### wasmbindgentestcontext\_args()
+
+> `readonly` **wasmbindgentestcontext\_args**: (`a`, `b`, `c`) => `void`
+
+#### Parameters
+
+• **a**: `number`
+
+• **b**: `number`
+
+• **c**: `number`
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:718
+
+***
+
+### wasmbindgentestcontext\_new()
+
+> `readonly` **wasmbindgentestcontext\_new**: () => `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:717
+
+***
+
+### wasmbindgentestcontext\_run()
+
+> `readonly` **wasmbindgentestcontext\_run**: (`a`, `b`, `c`) => `number`
+
+#### Parameters
+
+• **a**: `number`
+
+• **b**: `number`
+
+• **c**: `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+pkg/ridb\_rust.d.ts:719

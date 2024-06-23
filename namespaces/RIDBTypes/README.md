@@ -19,11 +19,11 @@
 - [Database](classes/Database.md)
 - [InMemory](classes/InMemory.md)
 - [Internals](classes/Internals.md)
-- [Loader](classes/Loader.md)
 - [Property](classes/Property.md)
 - [Schema](classes/Schema.md)
 - [Storage](classes/Storage.md)
 - [StorageInternal](classes/StorageInternal.md)
+- [WasmBindgenTestContext](classes/WasmBindgenTestContext.md)
 
 ### Interfaces
 
@@ -45,5 +45,10 @@
 ### Functions
 
 - [\_\_wbg\_init](functions/wbg_init.md)
+- [\_\_wbgtest\_console\_debug](functions/wbgtest_console_debug.md)
+- [\_\_wbgtest\_console\_error](functions/wbgtest_console_error.md)
+- [\_\_wbgtest\_console\_info](functions/wbgtest_console_info.md)
+- [\_\_wbgtest\_console\_log](functions/wbgtest_console_log.md)
+- [\_\_wbgtest\_console\_warn](functions/wbgtest_console_warn.md)
 - [initSync](functions/initSync.md)
-- [main](functions/main.md)
+- [main\_js](functions/main_js.md)

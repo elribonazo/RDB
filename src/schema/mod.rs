@@ -109,7 +109,7 @@ export class Schema<T extends SchemaType> {
 }
 "#;
 
-#[derive(Serialize, Deserialize, Clone, Default)]
+#[derive(Serialize, Deserialize, Clone, Default, Debug)]
 #[wasm_bindgen(skip_typescript)]
 /// Represents the schema of a collection, including version, primary key, type, required fields, properties, and indexes.
 pub struct Schema {
@@ -145,24 +145,8 @@ impl Schema {
     /// * `Result<Schema, JsValue>` - A result containing the new `Schema` instance or an error.
     #[wasm_bindgen]
     pub fn create(schema: JsValue) -> Result<Schema, JsValue> {
-        let schema: Schema = from_value(schema)
-            .map_err(|e| JsValue::from(RIDBError::from(e)))?;
-
-        schema.is_valid();
-
-        Ok(
-            schema
-        )
-    }
-
-    /// Checks is the schema is valid.
-    ///
-    /// # Returns
-    ///
-    /// Throws exception if not valid
-    #[wasm_bindgen(getter, js_name="version")]
-    pub fn is_valid(&self) -> Result<JsValue, JsValue>{
-        Ok(JsValue::undefined())
+        from_value(schema)
+            .map_err(|e| JsValue::from(RIDBError::from(e)))
     }
 
     /// Retrieves the version of the schema.

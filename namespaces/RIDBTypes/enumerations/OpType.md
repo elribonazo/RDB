@@ -18,7 +18,7 @@ Create operation.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:13
+pkg/ridb\_rust.d.ts:43
 
 ***
 
@@ -30,7 +30,7 @@ Delete operation.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:21
+pkg/ridb\_rust.d.ts:51
 
 ***
 
@@ -42,4 +42,4 @@ Update operation.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:17
+pkg/ridb\_rust.d.ts:47

@@ -44,7 +44,7 @@ A promise that resolves when the storage is closed.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:432
+pkg/ridb\_rust.d.ts:287
 
 ***
 
@@ -62,7 +62,7 @@ A promise that resolves to the number of documents.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:417
+pkg/ridb\_rust.d.ts:272
 
 ***
 
@@ -86,7 +86,7 @@ A promise that resolves to the found document or null.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:410
+pkg/ridb\_rust.d.ts:265
 
 ***
 
@@ -104,7 +104,7 @@ A promise that resolves when the query is complete.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:402
+pkg/ridb\_rust.d.ts:257
 
 ***
 
@@ -128,7 +128,7 @@ A promise that resolves when the document is removed.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:425
+pkg/ridb\_rust.d.ts:280
 
 ***
 
@@ -152,4 +152,4 @@ A promise that resolves to the document written.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:395
+pkg/ridb\_rust.d.ts:250

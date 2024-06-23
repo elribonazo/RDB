@@ -50,7 +50,7 @@ The schema type of the storage.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:452
+pkg/ridb\_rust.d.ts:307
 
 ## Properties
 
@@ -62,7 +62,7 @@ The name of the storage.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:457
+pkg/ridb\_rust.d.ts:312
 
 ***
 
@@ -74,7 +74,7 @@ The schema associated with the storage.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:462
+pkg/ridb\_rust.d.ts:317
 
 ## Methods
 
@@ -96,7 +96,7 @@ A promise that resolves when the storage is closed.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:469
+pkg/ridb\_rust.d.ts:324
 
 ***
 
@@ -118,7 +118,7 @@ A promise that resolves to the number of documents.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:476
+pkg/ridb\_rust.d.ts:331
 
 ***
 
@@ -146,7 +146,7 @@ A promise that resolves to the found document or null.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:484
+pkg/ridb\_rust.d.ts:339
 
 ***
 
@@ -162,7 +162,7 @@ Frees the resources used by the base storage.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:444
+pkg/ridb\_rust.d.ts:299
 
 ***
 
@@ -184,7 +184,7 @@ A promise that resolves when the query is complete.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:491
+pkg/ridb\_rust.d.ts:346
 
 ***
 
@@ -212,7 +212,7 @@ A promise that resolves when the document is removed.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:499
+pkg/ridb\_rust.d.ts:354
 
 ***
 
@@ -240,4 +240,4 @@ A promise that resolves to the document written.
 
 #### Defined in
 
-pkg/ridb\_rust.d.ts:507
+pkg/ridb\_rust.d.ts:362

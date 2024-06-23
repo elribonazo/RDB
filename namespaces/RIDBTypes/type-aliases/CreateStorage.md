@@ -28,4 +28,4 @@ A promise that resolves to the created internals record.
 
 ## Defined in
 
-pkg/ridb\_rust.d.ts:268
+pkg/ridb\_rust.d.ts:220

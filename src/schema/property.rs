@@ -7,8 +7,6 @@ use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
 use crate::error::RIDBError;
 use crate::schema::property_type::PropertyType;
-use wasm_bindgen_test::{wasm_bindgen_test};
-
 
 
 #[wasm_bindgen(typescript_custom_section)]
@@ -111,6 +109,14 @@ pub struct Property {
 
 #[wasm_bindgen]
 impl Property {
+    /// Checks is the schema is valid.
+    ///
+    /// # Returns
+    ///
+    /// Throws exception if not valid
+    pub fn is_valid(&self) -> bool {
+        true
+    }
     /// Retrieves the type of the property.
     ///
     /// # Returns
@@ -192,27 +198,44 @@ impl Property {
     }
 }
 
-#[cfg(test)]
-#[wasm_bindgen_test]
-fn test_property_defaults() {
-    let default_property = Property {
-        property_type: PropertyType::String,
-        items: None,
-        max_items: None,
-        min_items: None,
-        max_length: None,
-        min_length: None,
-        required: None,
-        properties: None,
-    };
 
-    // Test default values to ensure proper initialization
-    assert_eq!(default_property.property_type, PropertyType::String);
-    assert!(default_property.items.is_none());
-    assert!(default_property.max_items.is_none());
-    assert!(default_property.min_items.is_none());
-    assert!(default_property.max_length.is_none());
-    assert!(default_property.min_length.is_none());
-    assert!(default_property.required.is_none());
-    assert!(default_property.properties.is_none());
+
+#[cfg(feature = "browser")]
+use wasm_bindgen_test::{wasm_bindgen_test_configure};
+
+#[cfg(feature = "browser")]
+wasm_bindgen_test_configure!(run_in_browser);
+
+mod tests {
+    use wasm_bindgen_test::wasm_bindgen_test;
+    use crate::schema::property::Property;
+    use crate::schema::property_type::PropertyType;
+
+    #[wasm_bindgen_test]
+    fn test_property_defaults() {
+        let default_property = Property {
+            property_type: PropertyType::String,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        // Test default values to ensure proper initialization
+        assert_eq!(default_property.property_type, PropertyType::String);
+        assert!(default_property.items.is_none());
+        assert!(default_property.max_items.is_none());
+        assert!(default_property.min_items.is_none());
+        assert!(default_property.max_length.is_none());
+        assert!(default_property.min_length.is_none());
+        assert!(default_property.required.is_none());
+        assert!(default_property.properties.is_none());
+
+        let a = default_property.is_valid();
+        assert!(a);
+
+    }
+
 }

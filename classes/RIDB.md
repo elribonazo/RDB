@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:126](https://github.com/elribonazo/RIDB/blob/16a776a02482a53dea4bcee65ba3886992a6fca5/ts/src/index.ts#L126)
+[ts/src/index.ts:135](https://github.com/elribonazo/RIDB/blob/40f1b97fccf8055ed95c62368d24ffac744b38c2/ts/src/index.ts#L135)
 
 ## Accessors
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:137](https://github.com/elribonazo/RIDB/blob/16a776a02482a53dea4bcee65ba3886992a6fca5/ts/src/index.ts#L137)
+[ts/src/index.ts:146](https://github.com/elribonazo/RIDB/blob/40f1b97fccf8055ed95c62368d24ffac744b38c2/ts/src/index.ts#L146)
 
 ## Methods
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[ts/src/index.ts:150](https://github.com/elribonazo/RIDB/blob/16a776a02482a53dea4bcee65ba3886992a6fca5/ts/src/index.ts#L150)
+[ts/src/index.ts:159](https://github.com/elribonazo/RIDB/blob/40f1b97fccf8055ed95c62368d24ffac744b38c2/ts/src/index.ts#L159)
