@@ -135,6 +135,11 @@ impl Collection {
     }
 
     #[wasm_bindgen(getter)]
+    pub fn name(&self) -> String {
+        self.name.clone()
+    }
+
+    #[wasm_bindgen(getter)]
     pub fn internals(&self) -> Internals {
         self.internals.clone()
     }
@@ -152,7 +157,7 @@ impl Collection {
     ///
     /// This function is asynchronous.
     #[wasm_bindgen(js_name="findOne")]
-    pub async fn find_one(&self, primary_key: String) {
+    pub async fn find_one(&self, _primary_key: String) {
         todo!()
     }
 
@@ -164,7 +169,7 @@ impl Collection {
     ///
     /// * `document` - A `JsValue` representing the partial document to update.
     #[wasm_bindgen]
-    pub async fn update(&self, document: JsValue) -> Result<JsValue, JsValue> {
+    pub async fn update(&self, _document: JsValue) -> Result<JsValue, JsValue> {
         /* A document cannot get */
         todo!()
     }

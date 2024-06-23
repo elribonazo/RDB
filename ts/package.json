@@ -28,7 +28,7 @@
     "docs": "typedoc --cleanOutputDir false",
     "runtest": "npm run build && npm run test:node",
     "build": "sh build.sh",
-    "test": "npm run build && npm run test:node && npm run test:browser",
+    "test": "npm run test:node && npm run test:browser",
     "test:node": "sh test.sh -e node",
     "test:browser": "sh test.sh -e browser",
     "prepublishOnly": "cp ../README.MD ./README.MD && npm run build",

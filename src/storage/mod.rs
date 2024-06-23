@@ -3,7 +3,7 @@ pub mod inmemory;
 
 use std::collections::HashMap;
 use js_sys::{ Object, Reflect};
-use wasm_bindgen::{JsCast, JsValue};
+use wasm_bindgen::{JsValue};
 use wasm_bindgen::prelude::wasm_bindgen;
 use crate::error::RIDBError;
 use crate::storage::internals::{Internals};
@@ -80,7 +80,7 @@ impl Storage {
         for key in keys {
             let key_string = key.as_string().unwrap();
             let value = Reflect::get(&storages_map_js.clone(), &key)
-                .map_err(|e| JsValue::from(RIDBError::from("Failed to retrieve value")))?;
+                .map_err(|e| JsValue::from(RIDBError::from(e)))?;
             storages.insert(key_string, value.clone().into());
         }
 

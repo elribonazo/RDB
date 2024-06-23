@@ -7,7 +7,7 @@ is_mac() {
 echo "Building the rust library"
 cd .. 
 
-wasm-pack build --target=web
+wasm-pack --log-level error build --target=web
 
 PACKAGEJSON=./pkg/package.json
 IMPORTFILE=./pkg/ridb_rust.js

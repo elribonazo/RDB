@@ -174,8 +174,8 @@ impl Internals {
     pub async fn write(&self, document_without_pk: JsValue) -> Result<JsValue, JsValue> {
         let primary_key = self.schema.primary_key.clone();
         let document = self.validate_schema(document_without_pk)
-            .map_err(|e| JsValue::from(RIDBError::from("Could not add primary key")))?;
-        let mut indexes = match self.schema.indexes.clone() {
+            .map_err(|e| JsValue::from(RIDBError::from(e)))?;
+        let indexes = match self.schema.indexes.clone() {
             Some(mut existing) => {
                 existing.push(primary_key.clone());
                 existing

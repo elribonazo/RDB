@@ -166,7 +166,7 @@ impl BaseStorage {
     /// # Returns
     ///
     /// * `Schema` - The schema associated with the storage.
-    #[wasm_bindgen(method, getter = schema)]
+    #[wasm_bindgen(getter)]
     pub fn schema(&self) -> Schema {
         self.schema.clone()
     }
@@ -176,7 +176,7 @@ impl BaseStorage {
     /// # Returns
     ///
     /// * `String` - The name of the storage.
-    #[wasm_bindgen(method, getter = name)]
+    #[wasm_bindgen(getter)]
     pub fn name(&self) -> String {
         self.name.clone()
     }

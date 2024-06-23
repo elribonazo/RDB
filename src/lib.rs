@@ -1,9 +1,6 @@
 
-use serde::{Deserialize, Serialize};
-use wasm_bindgen::convert::IntoWasmAbi;
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
-use wasm_bindgen::prelude::*;
 mod error;
 mod utils;
 mod schema;
@@ -11,10 +8,10 @@ mod collection;
 mod storage;
 mod database;
 mod query;
-
+mod tests;
 
 #[wasm_bindgen(start)]
-pub fn main() -> Result<(), JsValue> {
+pub fn main_js() -> Result<(), JsValue> {
     #[cfg(feature = "console_error_panic_hook")]
     console_error_panic_hook::set_once();
     Ok(())
@@ -25,8 +22,3 @@ pub fn main() -> Result<(), JsValue> {
 #[cfg(feature = "wee_alloc")]
 #[global_allocator]
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
-
-#[wasm_bindgen]
-pub struct Loader {
-
-}

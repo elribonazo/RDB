@@ -2,8 +2,7 @@ pub mod property_type;
 pub mod property;
 
 use std::collections::HashMap;
-use std::hash::Hash;
-use serde::{Deserialize, Deserializer, Serialize, Serializer};
+use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::{from_value, to_value};
 use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;

@@ -1,0 +1,23 @@
+{
+  "capabilities": {
+    "browserName": "chrome",
+    "chromeOptions": {
+      "args": [
+        "--headless",
+        "--no-sandbox",
+        "--disable-dev-shm-usage",
+        "--whitelisted-ips=''"
+      ],
+      "prefs": {
+        "profile": {
+          "password_manager_enabled": false
+        }
+      },
+      "extensions": [],
+      "detach": false
+    },
+    "loggingPrefs": {
+      "browser": "ALL"
+    }
+  }
+}

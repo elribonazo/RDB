@@ -63,7 +63,7 @@ impl Database {
     #[wasm_bindgen(getter)]
     pub fn collections(&self) -> Result<Object, JsValue> {
         // Create a HashMap to store the collections
-        let mut collections: HashMap<String, Collection> =
+        let  collections: HashMap<String, Collection> =
             self.storage.internals
                 .iter()
                 .map(|(key, internals)| {
@@ -79,7 +79,7 @@ impl Database {
                 &object,
                 &JsValue::from_str(key.as_str()),
                 &JsValue::from(collection)
-            ).map_err(|e| JsValue::from(RIDBError::from("Failed to retrieve value")))?;
+            ).map_err(|e| JsValue::from(RIDBError::from(e)))?;
         }
 
         Ok(object)
