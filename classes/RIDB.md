@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:46](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L46)
+[ts/src/index.ts:126](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L126)
 
 ## Properties
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:45](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L45)
+[ts/src/index.ts:125](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L125)
 
 ## Accessors
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:57](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L57)
+[ts/src/index.ts:137](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L137)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:50](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L50)
+[ts/src/index.ts:130](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L130)
 
 ## Methods
 
@@ -88,7 +88,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:78](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L78)
+[ts/src/index.ts:158](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L158)
 
 ***
 
@@ -102,7 +102,7 @@
 
 #### Defined in
 
-[ts/src/index.ts:61](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L61)
+[ts/src/index.ts:141](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L141)
 
 ***
 
@@ -120,4 +120,4 @@
 
 #### Defined in
 
-[ts/src/index.ts:70](https://github.com/elribonazo/RIDB/blob/bef263115c187d0dea0f3a38e0d0a0410d7a024f/ts/src/index.ts#L70)
+[ts/src/index.ts:150](https://github.com/elribonazo/RIDB/blob/b0761106a4c812dd04966adb4057fb388e13a9d3/ts/src/index.ts#L150)
