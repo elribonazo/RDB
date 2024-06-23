@@ -39,7 +39,6 @@ const generic = {
     chunkNames: "[name]",
     assetNames: "[name]",
     entryPoints: ['src/index.ts'],
-    bundle: true,
     sourcemap: false,
     resolveExtensions: ['.ts', '.js', '.wasm'],
     inject:['ridb-rust'],
@@ -49,16 +48,39 @@ const generic = {
 // Build ES module
 esbuild.build({
     ...generic,
-    outdir: 'build',
+    outfile:"build/esm/index.mjs",
     splitting: false,
     platform: 'neutral',
     target: ['esnext'],
+    bundle: true,
     format: 'esm',
     plugins: [
         wasmPlugin,
         ...plugins
     ],
-}).catch((err) => {
+}).then(() => {
+    esbuild.build({
+        ...generic,
+        entryPoints: ['./build/esm/index.mjs'],
+        outfile:"build/cjs/index.cjs",
+
+        splitting: false,
+        platform: 'neutral',
+        target: ['es6'],
+        bundle: true,
+        format: 'cjs',
+        plugins: [
+            wasmPlugin,
+            ...plugins
+        ],
+    }).catch((err) => {
+        console.log(err)
+        process.exit(1)
+    });
+})
+
+    .catch((err) => {
     console.log(err)
     process.exit(1)
 });
+

@@ -1,11 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import {
-
     RIDB,
     SchemaFieldType,
-} from "../build";
+    RIDBTypes
+} from "../build/esm/index";
 
-import  {RIDBTypes} from "../build";
 
 const schemaType = {
     version: 0,

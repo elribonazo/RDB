@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es2020",
-    "module": "ESNext",
+    "target": "es2022",
+    "module": "es2022",
     "moduleResolution": "node",
     "declaration": true,
     "emitDeclarationOnly": false,
@@ -11,7 +11,7 @@
     "strict": true,
     "allowJs": true,
     "skipLibCheck": false,
-    "lib": ["ES2020", "DOM"],
+    "lib": ["ES2022", "DOM"],
     "paths": {
       "ridb-rust": ["../pkg"]
     }
