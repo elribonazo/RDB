@@ -39,7 +39,7 @@ elif [ "$ENVIRONMENT" = "browser" ]; then
     fi
 
     # Execute wasm-pack for browser, handle possible failures
-    wasm-pack --log-level error test --headless --chrome -- --features browser  || { echo "wasm-pack test failed"; exit 1; }
+    wasm-pack --log-level error test --headless --chrome -- --features browser   || { echo "wasm-pack test failed"; exit 1; }
     cd ts || { echo "Failed to change to 'ts' directory"; exit 1; }
     echo "Testing ESM Version in Browser"
     VITE_CJS_IGNORE_WARNING=true npx vitest --config "vitest.config.ts" $BROWSER_ENV tests/browser.test.ts || { echo "Vitest tests failed"; exit 1; }

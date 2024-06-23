@@ -1,3 +1,5 @@
+extern crate wasm_bindgen_test;
+
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
 use serde_wasm_bindgen::to_value;
@@ -5,6 +7,19 @@ use wasm_bindgen::JsValue;
 use wasm_bindgen::prelude::wasm_bindgen;
 use crate::error::RIDBError;
 use crate::schema::property_type::PropertyType;
+use wasm_bindgen_test::{wasm_bindgen_test};
+
+
+#[cfg(any(feature = "browser", feature = "node"))]
+pub mod tests_specific {
+    use wasm_bindgen_test::{wasm_bindgen_test_configure};
+
+    pub fn configure() {
+        #[cfg(feature = "browser")]
+        wasm_bindgen_test_configure!(run_in_browser);
+    }
+}
+
 
 #[wasm_bindgen(typescript_custom_section)]
 const TS_APPEND_CONTENT: &'static str = r#"
@@ -68,7 +83,7 @@ export class Property {
 
 
 #[wasm_bindgen(skip_typescript)]
-#[derive(Deserialize, Serialize, Clone)]
+#[derive(Deserialize, Serialize, Clone, PartialEq, Debug)]
 /// Represents a property within a schema, including type, items, length constraints, and other attributes.
 pub struct Property {
     /// The type of the property.
@@ -185,4 +200,27 @@ impl Property {
     pub fn properties(&self) -> Result<JsValue, JsValue> {
         Ok(to_value(&self.properties).map_err(|e| JsValue::from(RIDBError::from(e)))?)
     }
+}
+
+
+#[wasm_bindgen_test]
+fn test_property_type() {
+    let prop = Property {
+        property_type: PropertyType::String,
+        items: None,
+        max_items: None,
+        min_items: None,
+        max_length: None,
+        min_length: None,
+        required: None,
+        properties: None,
+    };
+    assert_eq!(prop.property_type(), PropertyType::String);
+    assert_eq!(prop.items().unwrap(), JsValue::undefined());
+    assert_eq!(prop.min_items().unwrap(), JsValue::undefined());
+    assert_eq!(prop.max_items().unwrap(), JsValue::undefined());
+    assert_eq!(prop.min_length().unwrap(), JsValue::undefined());
+    assert_eq!(prop.max_length().unwrap(), JsValue::undefined());
+    assert_eq!(prop.required().unwrap(), JsValue::undefined());
+    assert_eq!(prop.properties().unwrap(), JsValue::undefined());
 }
