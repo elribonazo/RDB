@@ -1,3 +1,5 @@
+
+
 pub mod property_type;
 pub mod property;
 
@@ -136,35 +138,20 @@ pub struct Schema {
 impl Schema {
 
     pub fn is_valid(&self) -> Result<bool, RIDBError> {
-        let type_valid = match self.get_schema_type() {
-            s => if s == "object" {
-                Ok(true)
-            } else {
-                Err(
-                    RIDBError::validation(
-                        format!("Schema type is invalid ({:?})", JsValue::from(s)).as_str()
-                    )
-                )
-            },
-        };
-
-        match type_valid {
-            Ok(_) => {
-                let found = self.properties.values().find_map(|property| {
-                    let valid = property.is_valid().unwrap();
-                    Some(valid)
-                });
-                match found {
-                    Some(result) => if result == true {
-                        Ok(result)
-                    } else {
-                        Err(RIDBError::validation("Schema is invalid"))
-                    },
-                    None => Err(RIDBError::validation("Schema is invalid"))
-                }
-            },
-            Err(e) => Err(e)
+        // Check if the schema type is "object"
+        let schema_type = self.get_schema_type();
+        if schema_type != "object" {
+            return Err(RIDBError::validation(
+                format!("Schema type is invalid (\"{}\")", schema_type).as_str(),
+            ));
         }
+        // Validate all properties
+        for property in self.properties.values() {
+            // Directly propagate the specific error from the property's validation
+            property.is_valid()?; // This will automatically return Err if is_valid() returns an Err
+        }
+        // If all properties are valid and the schema type is "object"
+        Ok(true)
     }
 
     /// Creates a new `Schema` instance from a given `JsValue`.
@@ -180,7 +167,6 @@ impl Schema {
     pub fn create(schema: JsValue) -> Result<Schema, JsValue> {
         let schema: Schema = from_value(schema)
             .map_err(|e| JsValue::from(RIDBError::from(e)))?;
-
         let valid = schema.is_valid();
         match valid {
             Ok(_) =>  Ok(schema),

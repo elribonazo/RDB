@@ -21,7 +21,7 @@ impl RIDBError {
     pub fn error(err: &str) -> RIDBError {
         RIDBError {
             code: Errors::Error,
-            message:  format!("Serialization {}", err)
+            message:  format!("Serialization Error: {}", err)
         }
     }
     pub fn serialisation(err: &str) -> RIDBError {
@@ -33,7 +33,7 @@ impl RIDBError {
     pub fn validation(err: &str) -> RIDBError {
         RIDBError {
             code: Errors::ValidationError,
-            message: format!("Validation {}", err)
+            message: format!("Validation Error: {}", err)
         }
     }
 }

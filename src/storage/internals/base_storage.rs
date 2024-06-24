@@ -160,8 +160,12 @@ impl BaseStorage {
         match Schema::create(schema_type) {
             Ok(schema) => {
                 match schema.is_valid() {
-                    Ok(_) => Ok(BaseStorage { name, schema }),
-                    Err(e) => Err(JsValue::from(e))
+                    Ok(_) => {
+                        Ok(BaseStorage { name, schema })
+                    },
+                    Err(e) => {
+                        Err(JsValue::from(e))
+                    }
                 }
             },
             Err(e) => Err(e)

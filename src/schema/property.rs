@@ -1,3 +1,4 @@
+
 extern crate wasm_bindgen_test;
 
 use std::collections::HashMap;
@@ -258,6 +259,7 @@ use wasm_bindgen_test::{wasm_bindgen_test_configure};
 #[cfg(feature = "browser")]
 wasm_bindgen_test_configure!(run_in_browser);
 
+
 #[cfg(test)]
 mod tests {
     use std::collections::HashMap;
@@ -312,7 +314,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Items is empty", "Error: Expected 'Validation Items is empty'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Items is empty", "Error: Expected 'Validation Error: Items is empty'")
         }
     }
 
@@ -341,7 +343,7 @@ mod tests {
         let result = default_property.is_valid();
         match result {
             Ok(_js_val) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Min property not valid", "Error: Expected 'Validation Min property not valid'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Min property not valid", "Error: Expected 'Validation Error: Min property not valid'")
         }
     }
 
@@ -372,7 +374,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Min higher than max", "Error: Expected 'Validation Min higher than max'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Min higher than max", "Error: Expected 'Validation Error: Min higher than max'")
         }
     }
 
@@ -404,7 +406,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Min property not valid", "Error: Expected 'Validation Min property not valid'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Min property not valid", "Error: Expected 'Validation Error: Min property not valid'")
         }
     }
 
@@ -465,7 +467,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Min higher than max", "Error: Expected 'Validation Min higher than max'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Min higher than max", "Error: Expected 'Validation Error: Min higher than max'")
         }
     }
 
@@ -485,7 +487,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Min property not valid", "Error: Expected 'Validation Min property not valid'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Min property not valid", "Error: Expected 'Validation Error: Min property not valid'")
         }
     }
 
@@ -504,7 +506,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Properties empty", "Error: Expected 'Validation Properties empty'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Properties empty", "Error: Expected 'Validation Error: Properties empty'")
         }
     }
 
@@ -523,7 +525,7 @@ mod tests {
         // Check the result for an error message
         match result {
             Ok(_) => panic!("Expected an error, but got Ok"),
-            Err(js_val) => assert_eq!(js_val.message, "Validation Properties empty", "Error: Expected 'Validation Properties empty'")
+            Err(js_val) => assert_eq!(js_val.message, "Validation Error: Properties empty", "Error: Expected 'Validation Error: Properties empty'")
         }
     }
 

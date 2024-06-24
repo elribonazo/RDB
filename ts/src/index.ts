@@ -159,8 +159,8 @@ export class RIDB<T extends RIDBTypes.SchemaTypeRecord> {
     }
 
     async start(storageType?: typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>) {
-        const db = await this.load();
-        this._db ??= await db.Database.create(this.schemas, {
+        const {Database} = await this.load();
+        this._db ??= await Database.create(this.schemas, {
             createStorage: (schemas) => this.createStorage(schemas, storageType)
         });
         return this.db;
