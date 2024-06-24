@@ -102,15 +102,17 @@ impl Database {
         schemas_map_js: Object,
         module: StorageModule
     ) -> Result<Database, JsValue> {
+
         if !schemas_map_js.is_object() {
             return Err(JsValue::from(RIDBError::from("Unexpected object")));
         }
-        let storage_internal_map_js = module.create_storage(&schemas_map_js.clone()).await;
+        let storage_internal_map_js = module.create_storage(&schemas_map_js.clone())?;
         let storage =
             Storage::create(storage_internal_map_js.clone().into())
                 .map_err(|e| {
                     JsValue::from(RIDBError::from(e))
                 })?;
+
         Ok(
             Database {
                 storage

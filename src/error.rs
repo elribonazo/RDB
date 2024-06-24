@@ -8,6 +8,7 @@ use crate::utils::extract_property;
 pub enum Errors {
     Error,
     SerializationError,
+    ValidationError
 }
 
 #[derive(Serialize, Deserialize, Debug)]
@@ -17,16 +18,22 @@ pub struct RIDBError {
 }
 
 impl RIDBError {
-    pub fn error(err: String) -> RIDBError {
+    pub fn error(err: &str) -> RIDBError {
         RIDBError {
             code: Errors::Error,
-            message: err
+            message:  format!("Serialization {}", err)
         }
     }
-    pub fn serialisation(err: String) -> RIDBError {
+    pub fn serialisation(err: &str) -> RIDBError {
         RIDBError {
             code: Errors::SerializationError,
-            message: err
+            message: format!("Error: {}", err)
+        }
+    }
+    pub fn validation(err: &str) -> RIDBError {
+        RIDBError {
+            code: Errors::ValidationError,
+            message: format!("Validation {}", err)
         }
     }
 }

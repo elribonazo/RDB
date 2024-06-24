@@ -126,7 +126,6 @@ impl Collection {
     ///
     /// * `name` - A string representing the name of the collection.
     /// * `internals` - Internal storage mechanisms for the collection.
-    #[wasm_bindgen(constructor)]
     pub fn from(name: String, internals: Internals) -> Collection {
         Collection {
             name,
@@ -140,8 +139,8 @@ impl Collection {
     }
 
     #[wasm_bindgen(getter)]
-    pub fn internals(&self) -> Internals {
-        self.internals.clone()
+    pub fn schema(&self) -> Schema {
+        self.internals.schema.clone()
     }
 
     /// Finds and returns all documents in the collection.

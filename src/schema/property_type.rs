@@ -28,14 +28,17 @@ impl Serialize for PropertyType {
             S: Serializer,
     {
         let value = match self {
-            PropertyType::String => 0,
-            PropertyType::Number => 1,
-            PropertyType::Boolean => 2,
-            PropertyType::Array => 3,
-            PropertyType::Object => 4,
-            _ => 0,
+            PropertyType::String => Ok(0),
+            PropertyType::Number => Ok(1),
+            PropertyType::Boolean =>Ok(2),
+            PropertyType::Array => Ok(3),
+            PropertyType::Object => Ok(4),
+            _ => Err(serde::ser::Error::custom("unknown PropertyType")),
         };
-        serializer.serialize_i64(value)
+        match value {
+            Ok(val) => serializer.serialize_i64(val),
+            Err(e) => Err(e)
+        }
     }
 }
 
@@ -73,7 +76,7 @@ impl<'de> Visitor<'de> for PropertyTypeVisitor {
     ///
     /// * `fmt::Result` - A result indicating success or failure.
     fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
-        formatter.write_str("an integer between 0 and 4 representing a PropertyType")
+        formatter.write_str("an PropertyType (String, Number, Boolean, Object or Array)")
     }
 
     /// Visits a string value and attempts to convert it into a `PropertyType`.
@@ -95,7 +98,7 @@ impl<'de> Visitor<'de> for PropertyTypeVisitor {
             "boolean" => Ok(PropertyType::Boolean),
             "array" => Ok(PropertyType::Array),
             "object" => Ok(PropertyType::Object),
-            _ => Err(E::invalid_value(de::Unexpected::Signed(value.parse().unwrap()), &self)),
+            _ => Err(E::invalid_value(de::Unexpected::Str(value), &self)),
         }
     }
 }

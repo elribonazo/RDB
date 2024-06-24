@@ -114,8 +114,60 @@ impl Property {
     /// # Returns
     ///
     /// Throws exception if not valid
-    pub fn is_valid(&self) -> bool {
-        true
+    #[wasm_bindgen]
+    pub fn is_valid(&self) -> Result<bool, RIDBError> {
+        match self.property_type {
+            PropertyType::String => {
+                let min = self.min_length.unwrap_or_else(|| 0);
+                let max = self.max_length.unwrap_or_else(|| -1);
+                if min < 0 {
+                    Err(RIDBError::validation("Min property not valid"))
+                } else if min > max && max >= 1 {
+                    Err(RIDBError::validation("Min higher than max"))
+                } else {
+                    Ok(true)
+                }
+            },
+            PropertyType::Number => Ok(true),
+            PropertyType::Boolean => Ok(true),
+            PropertyType::Array => match self.clone().items {
+                Some(items) => {
+                    let item = items.first();
+                    match item {
+                        Some(p) => {
+                            let is_valid: bool = p.is_valid().unwrap();
+                            match is_valid {
+                                true => {
+                                    let min = self.min_items.unwrap_or_else(|| 0);
+                                    let max = self.max_items.unwrap_or_else(|| -1);
+                                    if min < 0 {
+                                        Err(RIDBError::validation("Min property not valid"))
+                                    } else if min > max && max >= 1 {
+                                        Err(RIDBError::validation("Min higher than max"))
+                                    } else {
+                                        Ok(true)
+                                    }
+                                },
+                                false => Err(RIDBError::validation("Items property not valid"))
+                            }
+                        },
+                        None => Err(RIDBError::validation("Invalid property items"))
+                    }
+                },
+                None => Err(RIDBError::validation("Items is empty"))
+            },
+            PropertyType::Object => match self.clone().properties {
+                Some(props) => {
+                    if props.len() > 0 {
+                        Ok(true)
+                    } else {
+                        Err(RIDBError::validation("Properties empty"))
+                    }
+                },
+                _ => Err(RIDBError::validation("Properties empty"))
+            },
+            _ => Err(RIDBError::validation("Property type invalid"))
+        }
     }
     /// Retrieves the type of the property.
     ///
@@ -206,12 +258,13 @@ use wasm_bindgen_test::{wasm_bindgen_test_configure};
 #[cfg(feature = "browser")]
 wasm_bindgen_test_configure!(run_in_browser);
 
+#[cfg(test)]
 mod tests {
-    use wasm_bindgen_test::wasm_bindgen_test;
+    use std::collections::HashMap;
     use crate::schema::property::Property;
     use crate::schema::property_type::PropertyType;
 
-    #[wasm_bindgen_test]
+    #[test]
     fn test_property_defaults() {
         let default_property = Property {
             property_type: PropertyType::String,
@@ -223,7 +276,6 @@ mod tests {
             required: None,
             properties: None,
         };
-        // Test default values to ensure proper initialization
         assert_eq!(default_property.property_type, PropertyType::String);
         assert!(default_property.items.is_none());
         assert!(default_property.max_items.is_none());
@@ -232,10 +284,247 @@ mod tests {
         assert!(default_property.min_length.is_none());
         assert!(default_property.required.is_none());
         assert!(default_property.properties.is_none());
+        assert!(default_property.is_valid().unwrap());
+    }
 
-        let a = default_property.is_valid();
-        assert!(a);
+    #[test]
+    fn test_property_array_items_required() {
+        let default_property = Property {
+            property_type: PropertyType::Array,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        // Test default values to ensure proper initialization
+        assert_eq!(default_property.property_type, PropertyType::Array);
+        assert!(default_property.items.is_none());
+        assert!(default_property.max_items.is_none());
+        assert!(default_property.min_items.is_none());
+        assert!(default_property.max_length.is_none());
+        assert!(default_property.min_length.is_none());
+        assert!(default_property.required.is_none());
+        assert!(default_property.properties.is_none());
+        let result = default_property.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Items is empty", "Error: Expected 'Validation Items is empty'")
+        }
+    }
 
+    #[test]
+    fn test_property_array_items_with_max_min_items_wrong() {
+        let prop = Property {
+            property_type: PropertyType::String,
+            items:None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        let default_property = Property {
+            property_type: PropertyType::Array,
+            items: Some(vec![prop]),
+            max_items: Some(-1),
+            min_items: Some(-1),
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        let result = default_property.is_valid();
+        match result {
+            Ok(_js_val) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Min property not valid", "Error: Expected 'Validation Min property not valid'")
+        }
+    }
+
+    #[test]
+    fn test_property_array_items_with_max_min_items_wrong_min_higher() {
+        let prop = Property {
+            property_type: PropertyType::String,
+            items:None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+
+        let default_property2 = Property {
+            property_type: PropertyType::Array,
+            items: Some(vec![prop]),
+            max_items: Some(1),
+            min_items: Some(2),
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        let result = default_property2.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Min higher than max", "Error: Expected 'Validation Min higher than max'")
+        }
+    }
+
+
+    #[test]
+    fn test_property_array_items_with_max_min_items_wrong_min_lower0() {
+        let prop = Property {
+            property_type: PropertyType::String,
+            items:None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+
+        let default_property2 = Property {
+            property_type: PropertyType::Array,
+            items: Some(vec![prop]),
+            max_items: Some(1),
+            min_items: Some(-1),
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        let result = default_property2.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Min property not valid", "Error: Expected 'Validation Min property not valid'")
+        }
+    }
+
+
+    #[test]
+    fn test_property_number_ok() {
+        let default_property2 = Property {
+            property_type: PropertyType::Number,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        let result = default_property2.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => {},
+            Err(_) => panic!("Expected an error, but got Ok")
+        }
+    }
+
+    #[test]
+    fn test_property_boolean_ok() {
+        let default_property2 = Property {
+            property_type: PropertyType::Boolean,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        };
+        let result = default_property2.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => {},
+            Err(_) => panic!("Expected an error, but got Ok")
+        }
+    }
+
+    #[test]
+    fn test_property_string_with_max_min_length_wrong_min_higher() {
+        let default_property2 = Property {
+            property_type: PropertyType::String,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: Some(1),
+            min_length: Some(2),
+            required: None,
+            properties: None,
+        };
+        let result = default_property2.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Min higher than max", "Error: Expected 'Validation Min higher than max'")
+        }
+    }
+
+    #[test]
+    fn test_property_string_with_max_min_length_wrong_min_lower0() {
+        let default_property2 = Property {
+            property_type: PropertyType::String,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: Some(1),
+            min_length: Some(-1),
+            required: None,
+            properties: None,
+        };
+        let result = default_property2.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Min property not valid", "Error: Expected 'Validation Min property not valid'")
+        }
+    }
+
+    #[test]
+    fn test_property_object_no_props_err() {
+        let result = Property {
+            property_type: PropertyType::Object,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: None,
+        }.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Properties empty", "Error: Expected 'Validation Properties empty'")
+        }
+    }
+
+    #[test]
+    fn test_property_object_props_empty_err() {
+        let result = Property {
+            property_type: PropertyType::Object,
+            items: None,
+            max_items: None,
+            min_items: None,
+            max_length: None,
+            min_length: None,
+            required: None,
+            properties: Some(HashMap::new()),
+        }.is_valid();
+        // Check the result for an error message
+        match result {
+            Ok(_) => panic!("Expected an error, but got Ok"),
+            Err(js_val) => assert_eq!(js_val.message, "Validation Properties empty", "Error: Expected 'Validation Properties empty'")
+        }
     }
 
 }

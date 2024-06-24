@@ -67,7 +67,6 @@ impl Storage {
     /// * `Result<Storage, JsValue>` - A result containing the new `Storage` instance or an error.
     #[wasm_bindgen]
     pub fn create(storages_map_js: Object) -> Result<Storage, JsValue> {
-        // Check if the provided object is a valid JavaScript object
         if !storages_map_js.is_object() {
             return Err(JsValue::from(RIDBError::from("Unexpected object")));
         }
@@ -88,13 +87,14 @@ impl Storage {
         let storages_mounted: HashMap<String, Internals> = storages
             .iter()
             .map(|(name, storage_internal)| {
-                (name.clone(), Internals::new(storage_internal.clone()))
+                (name.clone(), Internals::new(storage_internal.clone()).unwrap())
             })
             .collect::<HashMap<String, Internals>>();
 
-        // Return the new Storage instance
-        Ok(Storage {
+        let storage = Storage {
             internals: storages_mounted,
-        })
+        };
+
+        Ok(storage)
     }
 }

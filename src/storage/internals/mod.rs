@@ -56,14 +56,12 @@ impl Internals {
     ///
     /// * `Internals` - A new instance of `Internals`.
     #[wasm_bindgen(constructor)]
-    pub fn new(internal: StorageInternal) -> Internals {
+    pub fn new(internal: StorageInternal) -> Result<Internals, JsValue> {
         let schema = internal.schema().clone();
-        Internals { schema, internal }
-    }
-
-    #[wasm_bindgen(getter)]
-    pub fn internal(&self) -> StorageInternal {
-        self.internal.clone()
+        match schema.is_valid() {
+            Ok(_) => Ok(Internals { schema, internal }),
+            Err(e) => Err(JsValue::from(e))
+        }
     }
 
     /// Ensures that the document has a primary key, generating one if necessary.
@@ -122,12 +120,12 @@ impl Internals {
             if value.is_undefined() {
                 if let Some(required_fields) = &self.schema.required {
                     if required_fields.contains(&key) {
-                        return Err(JsValue::from(RIDBError::error(format!("Field {} is required", key))));
+                        return Err(JsValue::from(RIDBError::error(format!("Field {} is required", key).as_str())));
                     }
                 }
             } else {
                 if !self.is_type_correct(&value, prop.property_type) {
-                    return Err(JsValue::from(RIDBError::error(format!("Field {} should match type {:?}", key, prop.property_type))));
+                    return Err(JsValue::from(RIDBError::error(format!("Field {} should match type {:?}", key, prop.property_type).as_str())));
                 }
             }
         }

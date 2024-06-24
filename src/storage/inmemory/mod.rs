@@ -99,14 +99,19 @@ impl StorageOperations for InMemory {
 #[wasm_bindgen]
 impl InMemory {
     #[wasm_bindgen(constructor)]
-    pub fn new(name: &str, schema_type: JsValue) -> InMemory {
-        let base = BaseStorage::new(
+    pub fn new(name: &str, schema_type: JsValue) -> Result<InMemory, JsValue> {
+        let base_res = BaseStorage::new(
             name.to_string(),
             schema_type
-        ).unwrap();
-        InMemory {
-            base,
-            by_index: Object::new()
+        );
+        match base_res {
+            Ok(base) => Ok(
+                InMemory {
+                    base,
+                    by_index: Object::new()
+                }
+            ),
+            Err(e) => Err(e)
         }
     }
 

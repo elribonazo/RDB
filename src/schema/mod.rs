@@ -131,8 +131,41 @@ pub struct Schema {
     pub(crate) indexes: Option<Vec<String>>,
 }
 
+
 #[wasm_bindgen]
 impl Schema {
+
+    pub fn is_valid(&self) -> Result<bool, RIDBError> {
+        let type_valid = match self.get_schema_type() {
+            s => if s == "object" {
+                Ok(true)
+            } else {
+                Err(
+                    RIDBError::validation(
+                        format!("Schema type is invalid ({:?})", JsValue::from(s)).as_str()
+                    )
+                )
+            },
+        };
+
+        match type_valid {
+            Ok(_) => {
+                let found = self.properties.values().find_map(|property| {
+                    let valid = property.is_valid().unwrap();
+                    Some(valid)
+                });
+                match found {
+                    Some(result) => if result == true {
+                        Ok(result)
+                    } else {
+                        Err(RIDBError::validation("Schema is invalid"))
+                    },
+                    None => Err(RIDBError::validation("Schema is invalid"))
+                }
+            },
+            Err(e) => Err(e)
+        }
+    }
 
     /// Creates a new `Schema` instance from a given `JsValue`.
     ///
@@ -145,8 +178,14 @@ impl Schema {
     /// * `Result<Schema, JsValue>` - A result containing the new `Schema` instance or an error.
     #[wasm_bindgen]
     pub fn create(schema: JsValue) -> Result<Schema, JsValue> {
-        from_value(schema)
-            .map_err(|e| JsValue::from(RIDBError::from(e)))
+        let schema: Schema = from_value(schema)
+            .map_err(|e| JsValue::from(RIDBError::from(e)))?;
+
+        let valid = schema.is_valid();
+        match valid {
+            Ok(_) =>  Ok(schema),
+            Err(e) => Err(JsValue::from(e))
+        }
     }
 
     /// Retrieves the version of the schema.
@@ -210,3 +249,4 @@ impl Schema {
     }
 
 }
+

@@ -157,8 +157,15 @@ impl BaseStorage {
     /// * `Result<BaseStorage, JsValue>` - A result containing the new `BaseStorage` instance or an error.
     #[wasm_bindgen(constructor)]
     pub fn new(name: String, schema_type: JsValue) -> Result<BaseStorage, JsValue> {
-        let schema = Schema::create(schema_type)?;
-        Ok(BaseStorage { name, schema })
+        match Schema::create(schema_type) {
+            Ok(schema) => {
+                match schema.is_valid() {
+                    Ok(_) => Ok(BaseStorage { name, schema }),
+                    Err(e) => Err(JsValue::from(e))
+                }
+            },
+            Err(e) => Err(e)
+        }
     }
 
     /// Retrieves the schema of the storage.

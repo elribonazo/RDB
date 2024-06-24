@@ -22,7 +22,7 @@ export type SchemaTypeRecord = {
  */
 export type CreateStorage = <T extends SchemaTypeRecord = SchemaTypeRecord>(
     records: T
-) => Promise<InternalsRecord>;
+) => InternalsRecord;
 
 /**
  * Represents a storage module with a method for creating storage.
@@ -46,8 +46,8 @@ extern "C" {
     #[derive(Clone, Default)]
     pub type StorageModule;
 
-    #[wasm_bindgen(method, js_name="createStorage")]
-    pub async fn create_storage(this: &StorageModule, records: &Object) -> JsValue;
+    #[wasm_bindgen(method, catch, js_name="createStorage")]
+    pub fn create_storage(this: &StorageModule, records: &Object) -> Result<JsValue, JsValue>;
 
     #[wasm_bindgen(constructor)]
     pub fn new(name: &JsValue, schema: &JsValue) -> StorageInternal;

@@ -126,21 +126,23 @@ import wasmBuffer from "../../pkg/ridb_rust_bg.wasm"
 import type * as RIDBTypes from "ridb-rust";
 export type * as RIDBTypes from "ridb-rust";
 
-let internal: typeof import("ridb-rust") | undefined;
-let db: RIDBTypes.Database<RIDBTypes.SchemaTypeRecord> | undefined;
 export { OpType, BaseStorage } from 'ridb-rust';
 
 export class RIDB<T extends RIDBTypes.SchemaTypeRecord> {
     private schemas: T;
+
+    private _internal: typeof import("ridb-rust") | undefined;
+    private _db: RIDBTypes.Database<T> | undefined;
+
     constructor(schemas: T) {
         this.schemas = schemas;
     }
 
     private get db() {
-        if (!db) {
+        if (!this._db) {
             throw new Error("Start the database first");
         }
-        return db;
+        return this._db;
     }
 
     get collections() {
@@ -148,24 +150,28 @@ export class RIDB<T extends RIDBTypes.SchemaTypeRecord> {
     }
 
     private async load(): Promise<typeof import("ridb-rust")> {
-        internal ??= await import("ridb-rust").then(async module => {
+        this._internal ??= await import("ridb-rust").then(async module => {
             const wasmInstance = module.initSync(wasmBuffer);
             await module.default(wasmInstance);
             return module;
         });
-        return internal!;
+        return this._internal!;
     }
 
     async start(storageType?: typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>) {
         const self = this;
-        db ||= await (await this.load()).Database.create(this.schemas, {
+        const db = await this.load();
+        this._db ??= await db.Database.create(this.schemas, {
             createStorage: (schemas) => self.createStorage(schemas, storageType)
         });
-        return db;
+        return this.db;
     }
 
-    private async createStorage<J extends RIDBTypes.SchemaTypeRecord>(schemas: J, storageConstructor?: typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>) {
-        const Storage = storageConstructor ?? ((await this.load()).InMemory as typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>);
+    private createStorage<J extends RIDBTypes.SchemaTypeRecord>(schemas: J, storageConstructor?: typeof RIDBTypes.BaseStorage<RIDBTypes.SchemaType>) {
+        if (!this._internal) {
+            throw new Error("Start the database first");
+        }
+        const Storage = storageConstructor ?? this._internal.InMemory;
         return Object.keys(schemas).reduce((storages, name) => ({
             ...storages,
             [name]: new Storage(name, schemas[name])
